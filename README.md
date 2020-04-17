@@ -59,10 +59,10 @@ list2 = [123]
 list3 = ['a']
 ```   
 
-__3. 프로그램이 어떠한 행위를 할 필요는 없지만 구문이 필요할 경우 Python에서 사용될 수 있는 명령문은 무엇일까요?__   
+__3. 프로그램이 어떠한 행위를 할 필요는 없지만 구문이 필요할 경우 Python에서 사용될 수 있는 문법은 무엇일까요?__   
    
-pass 명령문은 무의미한 작업입니다. 실행할 때 아무런 일도 일어나지 않습니다. 반드시 소문자로 "pass"를 사용해야 합니다. "Pass"로 작성할 경우 
-“NameError: name Pass is not defined.” 라는 에러를 마주할 수 있습니다. Python 명령문은 대소문자를 구별합니다.   
+pass문은 무의미한 작업입니다. 실행할 때 아무런 일도 일어나지 않습니다. 반드시 소문자로 "pass"를 사용해야 합니다. "Pass"로 작성할 경우 
+“NameError: name Pass is not defined.” 라는 에러를 마주할 수 있습니다. Python 문법은 대소문자를 구별합니다.   
 ```python
 letter = "hai sethuraman"
 for i in letter:
