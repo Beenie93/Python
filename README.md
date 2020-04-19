@@ -177,9 +177,101 @@ __try-except__ block에서 사용할 수 있는 두 옵션이 있습니다.
 - "finally" 절   
   - 예외가 발생하든 안하든 개의치않고 일부 코드를 실행시키기를 원할 경우 유용합니다.   
 
-__16. 
+__16. Python에서 string은 무엇인가요?__   
+   
+Python에서 string은 글자와 숫자로 된 연속이며 immutable한 객체입니다. 한번 값을 할당되면 수정을 허락하지 않습니다. Python에서는 join(), replace(), split() 같은 string을 변화시켜주는 함수들을 제공합니다. 하지만 이 중 어느 것도 원래 객체를 변경하지는 않습니다.   
 
+__17. Python에서 slicing은 무엇인가요?__   
+   
+slicing은 string의 한 부분을 추출하거나 list의 부분을 추출하기 위한 일련의 작업입니다. string(text)는 인덱스가 0부터 시작하고 n번째 글자는 text[n-1]에 담겨있습니다. Python은 인덱스를 뒤바꿀 수 있습니다. 예를 들어, 음수를 가지고 반대 방향으로 만들 수 있습니다. slice()는 또한 slice 객체를 생성하는 생성자 함수를 가지고 있습니다. 결과는 range(start,stop,step)에 의해 언급되어진 지시의 집합입니다. slice() 함수는 3개의 매개변수를 허용합니다.   
+1. start - slicing을 시작할 시작 숫자   
+2. stop - slicing의 끝을 나타내는 숫자   
+3. step - 인덱스가 증가하는 값 (default = 1)   
 
+__18. Python에서 %s는 무엇인가요?__   
+   
+Python은 어떠한 값이든 string으로 formatting 하는것을 지원합니다. 다소 복잡한 표현이 있을 수도 있습니다.   
+   
+흔한 관행 중 하나는 값들을 %s format specifier를 가지고 string으로 만드는 것입니다. Python에서 formatting 작업은 C 함수 printf()가 가진 것처럼 유사한 syntax를 가지고 있습니다.   
+
+__19. Python에서 string은 immutable or mutable 인가요?__   
+
+string은 immutable합니다.   
+   
+예를 들어 봅시다. "str" 변수가 string 값을 가지고 있는 있을 경우 변수를 담고 있는 컨테이너를 변화시킬 수 없습니다. 예를 들어, 변수의 값을 의미하고 있는 string이 가지는 값만 수정할 수 있습니다.   
+
+__20. Python에서 index는 무엇인가요?__   
+   
+index는 string 또는 정렬된 list에서 위치를 나타내는 정수 데이터형입니다.   
+   
+Python에서, string은 문자 리스트입니다. 0 ~ 길이 - 1 까지인 index를 사용하여 string에 접근할 수 있습니다.   
+
+예시로, string "Program" 에서 index는 이런식으로 생길 수 있습니다:   
+```python
+Program 0 1 2 3 4 5
+```   
+
+__21. Python에서 Docstring은 무엇인가요?___   
+   
+docstring은 아래의 나오는 Python constructs에서 첫 서술이 되는 유일한 텍스트입니다.   
+   
+Module, Function, Class, or Method definition.   
+   
+docstring은 string객체의 속성__doc__ 을 추가함으로써 얻을 수 있습니다.   
+   
+__22. Python programming에서 함수는 무엇인가요?__   
+   
+함수는 재사용가능한 개체이며 코드 블럭을 나타내는 객체입니다. 코드 재사용성을 높이고 프로그램에 모듈화를 가져옵니다.   
+   
+Python은 print()와 같은 많은 내장 함수를 제공하고 사용자 정의 함수를 생성할 수 있는 능력을 제공합니다.   
+
+__23. Python에서 얼마 만큼의 기본형 함수들이 이용 가능한가요?__   
+   
+Python은 두 가지 기본형 함수를 제공합니다.   
+   
+1. 내장 함수   
+2. 사용자 정의 함수   
+   
+내장 함수는 Python언어의 부분으로 볼수 있습니다. print(), dir(), len() 그리고 abs() 등이 있습니다.   
+
+__24. Python에서 어떻게 함수를 작성하나요?__   
+   
+아래의 방식으로 함수를 만들 수 있습니다.   
+
+1단계 - 함수를 작성하기 위해서, 단어 def를 작성한 후 함수 이름을 붙여줍니다.   
+2단계 - 매개변수를 작성하고 괄호를 사용하여 에워쌉니다. 마지막에 :을 붙여줍니다.   
+3단계 - 엔터를 누른 후, 실행에 필요한 Python코드를 작성해줍니다.   
+```python
+def seongbeen(age,nationality):
+    age = 100
+    nationality = None
+```   
+
+__25. Python에서 함수 호출 또는 호출가능한 객체는 무엇인가요?__   
+   
+Python에서 함수는 호출가능한 객체로 다뤄집니다. 인자들을 허용하고 튜플 형식으로 다수 값 또는 단일 값을 반환합니다. 이외에도, Python은 같은 범주에서 설치하는 클래스 인스턴스 또는 클래스 같은 다른 구성도 가지고 있습니다.   
+
+__26. Python에서 사용되는 단어 return은 무엇인가요?__   
+   
+함수의 목적은 입력을 받고 결과를 반환하는 겁니다.   
+   
+return은 호출하는 곳에 값을 다시 보내기 위한 함수에서 사용하는 Python 표현법입니다.   
+
+__27. Python에서 "Call by value"는 무엇인가요?__   
+   
+call-by-valud에서 하나의 표현이나 값인 인자는 함수 안에서 각각의 변수로 만들어집니다.   
+   
+Python은 이러한 변수를 function-level scope내의 지역변수로 간주합니다. 이러한 변수에 대한 어떠한 변화도 함수 외부에 반영되지 않고 함수 내에서만 남아있게 됩니다.   
+
+__28. Python에서 "Call by Reference"는 무엇인가요?__   
+   
+“call-by-reference”와 “pass-by-reference”를 교대해서 사용할 수 있습니다. 참조에 의해서 인자를 전달할 경우, 단순 복사보다 함수에 내포된 참조로서 이용할 수 있습니다. 이러한 경우에, 인자에 대한 모든 수정을 호출자가 볼 수 있습니다.   
+   
+이러한 설계는 지역 복사를 해야하는 필요성을 없애기때문에 더 많은 시간, 공간 효율성을 가져오는 장점을 가지고 있습니다.   
+   
+반면에, 단점은 함수 호출동안 뜻하지 않게 변수가 수정되어질 수 있다는 것입니다. 그러므로, 프로그래머는 이러한 불안정성을 피하기 위한 코드를 작성해야 할 필요가 있습니다.   
+
+__29. 
 
 ## Reference
 * TechBeamers
