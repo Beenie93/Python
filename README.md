@@ -80,7 +80,7 @@ os 모듈을 임포트한 뒤 아래와 같이 한줄을 작성하세요.
 import os
 print (os.path.expanduser('~'))
 ```   
-Output:   
+출력 결과:   
 ```python
 /home/runner
 ```   
@@ -271,7 +271,229 @@ __28. Python에서 "Call by Reference"는 무엇인가요?__
    
 반면에, 단점은 함수 호출동안 뜻하지 않게 변수가 수정되어질 수 있다는 것입니다. 그러므로, 프로그래머는 이러한 불안정성을 피하기 위한 코드를 작성해야 할 필요가 있습니다.   
 
-__29. 
+__29. trunc() 함수의 반환 값은 무엇인가요?__   
+   
+trunc() 함수는 출력 결과로 정수 값을 제공하고 특정 표현식으로부터의 소수 값을 제거하는 수학적인 동작을 수행합니다.   
+
+__30. Python 함수는 반드시 값을 반환해야 하나요?__   
+   
+함수가 값을 꼭 반환할 필요는 없습니다. 그러나, 반환해야만 한다면, None을 반환 값으로 사용할 수 있습니다.   
+
+__31. Python에서 continue가 하는 일은 무엇인가요?__   
+   
+continue는 실행되지 않은 부분에서 모든 명령어들을 유지하면서 loop문 안에서 다음 반복을 수행할 수 있게 통제하는 파이썬의 jump statement입니다.   
+   
+continue문은 "while" 과 "for"문에 적용할 수 있습니다.
+
+__32. Python에서 id() 함수의 목적은 무엇인가요?__   
+   
+id()는 Python 내장 함수 중 하나입니다.   
+```python
+Signature: id(object)
+```   
+하나의 매개변수를 허용하고 입력 객체와 연관된 유일한 식별자를 반환합니다.   
+
+__33. Python에서 *args는 무슨 일을 하나요?__   
+   
+*args를 함수 헤더에서 매개변수로 사용할 수 있습니다. n개의 인자를 전달할 수 있는 능력입니다.   
+   
+이러한 인자체계는 함수에 이름을 가진 인자를 전달하는것을 허락하지 않습니다.   
+   
+*args 사용의 예:
+```python
+# Python code to demonstrate 
+# *args for dynamic arguments 
+def fn(*argList):  
+    for argx in argList:  
+        print (argx) 
+    
+fn('I', 'am', 'Learning', 'Python')
+```   
+출력 결과:
+```python
+I
+am
+Learning
+Python
+```   
+
+__34. Python에서 **kwargs는 무슨 일을 하나요?__   
+   
+함수 선언에서 **kwargs를 사용할 수 있습니다. 키워드나 이름을 가진 n개의 인자를 전달할 수 있습니다.   
+**kwargs 사용의 예:
+```python
+# Python code to demonstrate 
+# **kwargs for dynamic + named arguments 
+def fn(**kwargs):  
+    for emp, age in kwargs.items(): 
+        print ("%s's age is %s." %(emp, age)) 
+    
+fn(John=25, Kalley=22, Tom=32)
+```   
+출력 결과:
+```python
+John's age is 25.
+Kalley's age is 22.
+Tom's age is 32.
+```   
+
+__35. Python은 main()를 가지고 있나요?__   
+   
+main()은 대부분의 프로그래밍 언어에서 첫번째로 호출되는 진입점 함수입니다.   
+   
+Python은 인터프리터 기반이기때문에, 코드를 한줄씩 연속적으로 실행시킵니다.   
+   
+Python은 main() 함수를 가집니다. 그러나 Python script를 직접적으로 클릭하거나 명령어 라인에서 시킬때마다 실행되어집니다.   
+   
+Python default main()함수를 오버라이드 할 수도 있습니다. 아래의 코드를 봐주세요.   
+```python
+print("Welcome")
+print("__name__ contains: ", __name__)
+def main():
+    print("Testing the main function")
+if __name__ == '__main__':
+    main()
+```   
+출력 결과:   
+```python
+Welcome
+__name__ contains:  __main__
+Testing the main function
+```   
+
+__36. Python에서 __ name __ 은 무엇을 하나요?__   
+   
+__ name __ 은 유일한 변수입니다. Python은 main() 함수를 드러내지 않기 때문에, 인터프리터가 스크립트를 실행할 때 먼저 level 0 indentation에 있는 코드를 실행합니다.   
+   
+main()이 호출되는지 보기 위해서, " __ main __ " 과 비교하는 절에서 __ name __ 을 사용합니다.   
+
+__37. Python에서 "end"의 목적은 무엇인가요?__   
+   
+Python의 print() 함수는 항상 끝에 새 줄을 출력합니다. print() 함수는 'end'로 알려진 옵션 매개변수를 허용합니다. end의 값은 '\n'로 자동적으로 설정되어 있습니다. print문안에 있는 end 문자를 원하는 값으로 변경할 수 있습니다.   
+```python
+# Example: Print a  instead of the new line in the end.
+print("Let's learn" , end = ' ')  
+print("Python") 
+
+# Printing a dot in the end.
+print("Learn to code from techbeamers" , end = '.')  
+print("com", end = ' ')
+```   
+출력 결과:   
+```python
+Let's learn Python
+Learn to code from techbeamers.com
+```   
+
+__38. Python에서 언제 "break"를 사용하나요?__   
+   
+Python은 loop로부터 나오기 위한 break문을 제공합니다. 코드에서 break가 될때마다, 즉시 loop로부터 나오게 됩니다.   
+   
+중첩 loop문에서 break는 내부 loop문에서 나오게 됩니다.   
+
+__39. Python에서 continue와 pass 사이의 차이점은 무엇인가요?__   
+   
+continue문은 loop가 다음 반복을 할 수 있게 합니다.   
+   
+반면에, pass문은 아무것도 하지 않고, 평소처럼 나머지 코드가 실행됩니다.   
+   
+__40. Python에서 len() 함수는 무엇을 하나요?__   
+   
+Python에서, len()은 중요한 string 함수입니다. 입력 string의 길이를 보여줍니다.   
+```python
+>>> some_string = 'techbeamers'
+>>> len(some_string)
+11
+```   
+
+__41. Python에서 chr() 함수는 무엇을 하나요?__   
+   
+chr()함수는 3.0 버전에서 제거되었다 Python 3.2에서 재추가 되었습니다.   
+   
+Unicode code point가 정수인 문자를 나타내는 string을 반환합니다.
+   
+예를 들어, chr(122)은 string 'z'를 반환하고 chr(1212)는 string ‘Ҽ’를 반환합니다.
+
+__42. Python에서 ord() 함수는 무엇을 하나요?__   
+   
+ord(char)은 1 크기의 string을 가지고 Unicode type 객체의 경우 Unicode code 형식 문자를 나타내는 정수를 반환하고 8-bit string type의 경우 byte 값을 반환합니다.   
+```python
+>>> ord("z")
+122
+```   
+
+__43. Python에서 rstrip()은 무엇인가요?__   
+   
+Python은 끝에 여백 문자를 제외한 string을 복사하는 rstrip() 함수를 제공합니다.   
+   
+rstrip()은 인자 값을 기반한 문자를 오른쪽 끝에서 제외합니다. 예시로, 문자 그룹에 언급된 string은 제외됩니다.   
+   
+rstrip의 선언:
+```python
+str.rstrip([char sequence/pre>
+```   
+```python
+#Example
+test_str = 'Programming    '
+# The trailing whitespaces are excluded
+print(test_str.rstrip())
+Programming
+```   
+
+__44. Python에서 여백은 무엇인가요?__   
+   
+여백은 간격과 분리를 위해서 사용하는 문자입니다.   
+   
+Python에는 tab과 space가 있습니다.   
+   
+__45. Python에서 isalpha()는 무엇인가요?__   
+   
+내장 함수 isalpha()는 string을 다루는 함수입니다.   
+   
+string에 있는 모든 문자가 alphabet type이면 True, 아니면 False를 반환합니다.   
+
+__46. Pyhton에서 split()를 어떻게 사용하나요?__   
+   
+split() 함수는 string에서 큰 조각을 더 작은 덩어리 또는 sub-strings으로 자르기 위한 함수입니다. 분리 기준 문자를 명시하여 쪼개거나 자동적으로 설정된 space를 사용하여 쪼갤 수 있습니다.   
+```python
+#Example
+str = 'pdf csv json'
+print(str.split(" "))
+print(str.split())
+```   
+출력 결과:
+```python
+['pdf', 'csv', 'json']
+['pdf', 'csv', 'json']
+```   
+
+__47. Python에서 join 함수는 무엇을 하나요?__   
+   
+join()은 string, list, tuple에서 가능하며 값을 합치고 통합된 값을 반환합니다.   
+
+__48. Python에서 title() 함수는 무엇을 하나요?__   
+   
+title()은 각 단어에서 첫번째 문자를 대문자로 나머지 문자들을 소문자로 변환하는 함수입니다.   
+```python
+#Example
+str = 'lEaRn pYtHoN'
+print(str.title())
+```   
+출력 결과:
+```python
+Learn Python
+```   
+__49. CPython의 어느 것이 Python과 다르게 만드나요?__   
+   
+CPython은 중심부가 C로 개발되었습니다. Python-ish 코드를 C 언어로 번역시키기위해 사용되는 인터프리터 loop를 실행시킵니다.   
+
+__50. 어느 package가 가장 빠른 Python 형태일까요?__   
+   
+PyPy는 성능을 향상시키기 위해 CPython 수행을 이용하면서 최대 호환성을 제공한다.   
+   
+PyPy가 CPython보다 거의 5배 빠르다.   
+
+__51.
 
 ## Reference
 * TechBeamers
