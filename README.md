@@ -493,7 +493,270 @@ PyPy는 성능을 향상시키기 위해 CPython 수행을 이용하면서 최�
    
 PyPy가 CPython보다 거의 5배 빠르다.   
 
-__51.
+__51. Python언어에서 GIL은 무엇인가요?__   
+   
+Python은 동시에 여러 파이썬 코드(bytecode)를 실행할 때에 여러 스레드를 사용할 경우, 다수의 스레드를 동기화하여 단 하나의 thread만이 Python object에 안전한 접근을 하게하는 mutex인 GIL(the global interpreter lock)을 지원합니다.
+
+__52. 어떻게 Python 스레드는 안전한가요?__   
+   
+Python은 스레드에게 안전한 접근을 보장합니다. 동기화를 하기 위해 GIL mutex를 사용합니다. 스레드가 언제든지 GIL lock을 잃을 수 있다면, 반드시 thread-safe한 코드를 작성해야 합니다.   
+
+__53. Python 어떻게 메모리를 관리하나요?__   
+   
+Python은 내부적으로 각 모든 객체와 데이터 구조를 가지는 heap manager를 이용합니다.   
+   
+이러한 heap manager는 객체에 대한 heap 공간의 할당과 해제를 담당합니다.   
+
+__54. Python에서 tuple은 무엇인가요?__   
+   
+tuple은 immutable한 모음 데이터형입니다.   
+   
+list의 연속성과 비슷한 점을 가지고 있습니다. 그러나 tuple과 list의 다른점은 tuple은 변경이 불가하지만 list는 변경이 가능합니다.   
+   
+또한, tuple은 소괄호()로 둘러싸지만 list는 대괄호[]로 둘러쌉니다.   
+
+__55. dictionary는 무엇인가요?__   
+   
+dictionary는 객체들의 모음을 저장한 Python에서 연관배열로 알려진 자료구조입니다.   
+   
+모음은 하나의 연관된 값을 가진 키들의 집합입니다. 이것을 hash, map, 또는 hashmap이라 부를 수 있습니다.   
+   
+__56. Python에서 set 객체를 무엇인가요?__   
+   
+set은 비정렬된 모음 객체입니다. 유일하고 immutable한 객체를 저장합니다.   
+
+__57. Python에서 어떻게 dictionary를 사용하나요?__   
+   
+dictionary는 다른 객체(values)들의 그룹에 대응하는 객체(keys)들의 그룹을 가지고 있습니다. dictionary는 유일한 keys와 values가 대응된 것을 나타냅니다.   
+   
+mutable하지만 보통 변경하지 않습니다. keys와 연관된 values는 어떠한 Python 자료형도 될 수 있습니다.   
+
+__58. Python list는 linked list인가요?__   
+   
+Python list는 C-style linked list와 다르게 길이가 변경 가능한 배열입니다.   
+   
+내부적으로, 다른 객체를 참조하기 위한 인접배열을 가지고 있으며 list head 구조에서 배열 값과 길이를 가르키는 포인터를 가지고 있습니다.   
+   
+__59. Python에서 class는 무엇인가요?__   
+   
+Python은 객체지향프로그래밍을 지원하고 거의 모든 OOP 특징을 제공합니다.   
+   
+Python class는 객체들을 생성하기 위한 설계도입니다. 멤버변수을 정의하고 관련된 행동을 얻습니다.   
+   
+키워드 "class"를 사용하여 만들 수 있습니다. 객체는 생성자로부터 만들어집니다. 이러한 객체는 클래스의 instance를 의미합니다.   
+   
+__60. Python class에서 Attributes과 Methods는 무엇인가요?__   
+   
+class는 정의된 기능들이 하나도 없다면 쓸모가 없습니다. 속성들을 추가함으로써 쓸모있게 만들 수 있습니다. 속성은 데이터와 함수를 담는 컨테이너의 역할을 합니다. class 내부에 직접적으로 명시하여 속성들을 추가할 수 있습니다.   
+```python
+>>> class Human:
+...     profession = "programmer" # specify the attribute 'profession' of the class
+>>> man = Human()
+>>> print(man.profession)
+programmer
+```   
+속성들이 추가된 후에, 함수를 정의할 수 있습니다. 일반적으로, 함수를 methods로 부를 수 있습니다. methods 선언에서, 반드시 키워드 "self"를 첫번째 인자로 두어야합니다.   
+```python
+>>> class Human:
+    profession = "programmer"
+    def set_profession(self, new_profession):
+        self.profession = new_profession      
+>>> man = Human()
+>>> man.set_profession("Manager")
+>>> print(man.profession)
+Manager
+```   
+__61. class attributes의 값들이 런타임에 어떻게 할당되나요?__   
+   
+런타임에 속성들에 대한 값들을 지정할 수 있습니다. init method를 추가하고 input을 객체 생성자에게 전달해야합니다. 이것을 설명하는 예를 봅시다.   
+```python
+>>> class Human:
+    def __init__(self, profession):
+        self.profession = profession
+    def set_profession(self, new_profession):
+        self.profession = new_profession
+
+>>> man = Human("Manager")
+>>> print(man.profession)
+Manager
+```   
+
+__62. Inhertance는 무엇인가요?__   
+   
+상속은 자식 class가 부모 class의 특성에 대한 접근을 하게 하는 OOP 메카니즘입니다. 부모 class의 기능들을 자식 class로 이월합니다.   
+   
+공통 코드는 부모 class가 가지고 있고 자식 class 객체는 상속을 통해 해당 코드에 대한 접근을 할 수 있습니다. 아래의 예를 확인해보죠.   
+```python
+class PC: # Base class
+    processor = "Xeon" # Common attribute
+    def set_processor(self, new_processor):
+        processor = new_processor
+
+class Desktop(PC): # Derived class
+    os = "Mac OS High Sierra" # Personalized attribute
+    ram = "32 GB"
+
+class Laptop(PC): # Derived class
+    os = "Windows 10 Pro 64" # Personalized attribute
+    ram = "16 GB"
+
+desk = Desktop()
+print(desk.processor, desk.os, desk.ram)
+
+lap = Laptop()
+print(lap.processor, lap.os, lap.ram)
+```   
+출력 결과:   
+```python
+Xeon Mac OS High Sierra 32 GB
+Xeon Windows 10 Pro 64 16 GB
+```   
+
+__63. composition은 무엇인가요?__   
+   
+composition은 상속의 종류입니다. base class로부터 약간 다르게 상속됩니다. 예를 들어, derived class의 멤버로서 동작하는 base class의 instance 변수를 사용함으로써 상속이 됩니다.   
+   
+composition을 설명하기 위해서, derived class에서 base class를 instance화하고 이러한 instance를 사용해야합니다.   
+```python
+class PC: # Base class
+    processor = "Xeon" # Common attribute
+    def __init__(self, processor, ram):
+        self.processor = processor
+        self.ram = ram
+
+    def set_processor(self, new_processor):
+        processor = new_processor
+
+    def get_PC(self):
+        return "%s cpu & %s ram" % (self.processor, self.ram)
+
+class Tablet():
+    make = "Intel"
+    def __init__(self, processor, ram, make):
+        self.PC = PC(processor, ram) # Composition
+        self.make = make
+
+    def get_Tablet(self):
+        return "Tablet with %s CPU & %s ram by %s" % (self.PC.processor, self.PC.ram, self.make)
+
+if __name__ == "__main__":
+    tab = Tablet("i7", "16 GB", "Intel")
+    print(tab.get_Tablet())
+```   
+출력 결과:   
+```python
+Tablet with i7 CPU & 16 GB ram by Intel
+```   
+
+__64. error와 exception은 무엇인가요?__   
+   
+error는 비정상적 종료를 야기하는 코딩 이슈입니다.   
+   
+반면에, exception은 프로그램의 일반적인 흐름을 중단하는 외부 이벤트의 발생으로 인해 생깁니다.   
+   
+__65. try/except/finally를 가지고 어떻게 exception을 처리하나요?__   
+   
+exception과 같은 에러를 처리하기위해 try,except,finally 구조를 사용합니다. try block 아래에 에러발생 가능성이 있는 코드를 작성합니다. except block에 에러 발생시 작동시킬 코드를 작성합니다. 어떠한 경우에서라도 마지막에 실행되어야만 하는 코드는 finally block에 와야합니다.   
+```python
+try:
+    print("Executing code in the try block")
+    print(exception)
+except:
+    print("Entering in the except block")
+finally:
+    print("Reached to the final block")
+```   
+출력 결과:   
+```python
+Executing code in the try block
+Entering in the except block
+Reached to the final block
+```   
+
+__66. 어떻게 미리 정의된 조건에 대한 exception을 발생시킬까요?__   
+   
+조건에 따라 exception을 일으킬 수 있습니다.   
+   
+예를 들어, 사용자가 홀수만 입력하게 한다면, 짝수 입력 시 exception을 일으킵니다.   
+```python
+# Example - Raise an exception
+while True:
+    try:
+        value = int(input("Enter an odd number- "))
+        if value%2 == 0:
+            raise ValueError("Exited due to invalid input!!!")
+        else:
+            print("Value entered is : %s" % value)
+    except ValueError as ex:
+        print(ex)
+        break
+```   
+출력 결과:   
+```python
+Enter an odd number- 2
+Exited due to invalid input!!!
+```   
+```python
+Enter an odd number- 1
+Value entered is : 1
+Enter an odd number-
+```   
+
+__67. iterattios는 무엇인가요?__   
+   
+iterator는 다음 요소로 이동하게 하는 배열같은 객체입니다. for문과 같은 loop에서 사용합니다.   
+   
+Python library는 iterator의 번호를 가지고 있습니다. 예를 들어, list는 iterator이고 loop문을 통해 사용할 수 있습니다.   
+
+__68. iterable과 iterator사이에 차이점은 무엇인가요?__   
+   
+set, list, tuple, dictionary, list 같은 모음 자료형은 모두 iterable한 객체이기도 하지만 iterator를 반환하는 iterable한 container입니다.   
+   
+__69. generator는 무엇인가요?__   
+   
+generator는 iterator와 같이 동작하는 함수를 선언할 수 있게 해주는 기능이며 for문에서 사용될 수 있습니다.   
+```python
+# Simple Python function
+def fn():
+    return "Simple Python function."
+
+# Python Generator function
+def generate():
+    yield "Python Generator function."
+
+print(next(generate()))
+```   
+출력 결과:   
+```python
+Python Generator function.
+```   
+
+__70. closures은 무엇인가요?__   
+   
+closures는 다른 함수에 의해 반환된 함수 객체입니다. 코드 중복을 제거하기위해 사용합니다.   
+   
+아래의 예에서, 숫자들을 곱하기 위한 간단한 closure를 작성했습니다.   
+```python
+def multiply_number(num):
+    def product(number):
+        'product() here is a closure'
+        return num * number
+    return product
+
+num_2 = multiply_number(2)
+print(num_2(11))
+print(num_2(24))
+
+num_6 = multiply_number(6)
+print(num_6(1))
+```   
+출력 결과:   
+```python
+22
+48
+6
+```   
+
 
 ## Reference
 * TechBeamers
