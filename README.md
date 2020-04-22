@@ -733,7 +733,7 @@ Python Generator function.
 
 __70. closures은 무엇인가요?__   
    
-closures는 다른 함수에 의해 반환된 함수 객체입니다. 코드 중복을 제거하기위해 사용합니다.   
+closures는 다른 함수에 의해 반환된 함수 객체입니다. 코드 중복을 제거하기 위해 사용합니다.   
    
 아래의 예에서, 숫자들을 곱하기 위한 간단한 closure를 작성했습니다.   
 ```python
@@ -755,6 +755,32 @@ print(num_6(1))
 22
 48
 6
+```   
+
+__71. Decorator는 무엇인가요?__   
+   
+동적으로 주어진 객체에 새로운 기능을 추가할 수 있는 능력입니다. 아래의 예에서, 함수의 실행 전과 후의 메세지를 보여주기위한 간단한 예를 작성하였습니다.   
+```python
+def decorator_sample(func):
+    def decorator_hook(*args, **kwargs):
+        print("Before the function call")
+        result = func(*args, **kwargs)
+        print("After the function call")
+        return result
+    return decorator_hook
+
+@decorator_sample
+def product(x, y):
+    "Function to multiply two numbers."
+    return x * y
+
+print(product(3, 3))
+```   
+출력 결과:   
+```python
+Before the function call
+After the function call
+9
 ```   
 
 
