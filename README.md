@@ -1118,9 +1118,544 @@ After the function call
 9
 ```   
 
+__72. 어떻게 dictionary를 만드나요?__   
+   
+사이트 통계치 만들기로 예를 들어봅시다. 통계치를 위해 ":"을 사용하여 key-value 쌍을 분리해야 합니다. key들은 immutable 타입이여야만 합니다. 예를 들어, 런타임에 변화가 안되는 데이터 형을 사용할 겁니다. int, string 또는 tuple을 선택할 겁니다.   
+   
+그러나, value는 어떠한 데이터 형이든 상관없습니다. 데이터 쌍을 구별하기 위해서 ","을 사용할 수 있고 중괄호{...} 안에 담아둘 수 있습니다.   
+```python
+>>> site_stats = {'site': 'tecbeamers.com', 'traffic': 10000, "type": "organic"}
+>>> type(site_stats)
+<class 'dict'>
+>>> print(site_stats)
+{'type': 'organic', 'site': 'tecbeamers.com', 'traffic': 10000}
+```   
+
+__73. dictionary로부터 값을 어떻게 가져오나요?__   
+   
+dictionary로부터 키를 사용하여 데이터에 직접적으로 접근할 수 있습니다. 대괄호 [...]를 사용하여 key를 에워쌓으면 dictionary에 대응되는 변수 값을 가져올 수 있습니다.   
+```python
+>>> site_stats = {'site': 'tecbeamers.com', 'traffic': 10000, "type": "organic"}
+>>> print(site_stats["traffic"])
+```   
+   
+dictionary로부터 값을 가져오기 위해서 또는 defalut 값을 설정하기 위해 함수를 사용할 수 있습니다. key가 발견되지 않는다면, KeyError가 발생합니다.   
+
+```python
+>>> site_stats = {'site': 'tecbeamers.com', 'traffic': 10000, "type": "organic"}
+>>> print(site_stats.get('site'))
+tecbeamers.com
+```   
+
+__74. dictionary 객체를 통해서 순회할 수 있나요?__   
+   
+"for"과 "in"을 사용하여 dictionary 객체를 순회할 수 있습니다.   
+
+```python
+>>> site_stats = {'site': 'tecbeamers.com', 'traffic': 10000, "type": "organic"}
+>>> for k, v in site_stats.items():
+    print("The key is: %s" % k)
+    print("The value is: %s" % v)
+    print("++++++++++++++++++++++++")
+```   
+출력 결과:   
+```python
+The key is: type
+The value is: organic
+++++++++++++++++++++++++
+The key is: site
+The value is: tecbeamers.com
+++++++++++++++++++++++++
+The key is: traffic
+The value is: 10000
+++++++++++++++++++++++++
+```   
+
+__75. dictionary에 요소를 어떻게 추가하나요?__   
+   
+새로운 key에 대응하는 value를 설정하여 dictionary를 수정함으로써 요소를 추가할 수 있습니다. 기존 key 값에 대해 value를 설정할 경우 해당 key에 대응되는 value가 수정됩니다.   
+```python
+>>> # Setup a blank dictionary
+>>> site_stats = {}
+>>> site_stats['site'] = 'google.com'
+>>> site_stats['traffic'] = 10000000000
+>>> site_stats['type'] = 'Referral'
+>>> print(site_stats)
+{'type': 'Referral', 'site': 'google.com', 'traffic': 10000000000}
+```   
+
+update() 함수의 도움으로 두 dictionary를 합쳐 더 큰 dictionary를 얻을 수도 있습니다.   
+
+```python
+>>> site_stats['site'] = 'google.co.in'
+>>> print(site_stats)
+{'site': 'google.co.in'}
+>>> site_stats_new = {'traffic': 1000000, "type": "social media"}
+>>> site_stats.update(site_stats_new)
+>>> print(site_stats)
+{'type': 'social media', 'site': 'google.co.in', 'traffic': 1000000}
+```   
+
+__76. dictionary의 요소를 삭제하는 방법은 무엇인가요?__   
+   
+del() 함수와 key를 사용함으로써 key와 대응되는 value를 함께 삭제할 수 있습니다.   
+   
+```python
+>>> site_stats = {'site': 'tecbeamers.com', 'traffic': 10000, "type": "organic"}
+>>> del site_stats["type"]
+>>> print(site_stats)
+{'site': 'google.co.in', 'traffic': 1000000}
+```   
+
+다른 방법으로는, pop() 함수를 사용할 수 있습니다. 파라미터로 key만 넣어주거나 key가 존재하지 않을 경우를 위해 두 번째 파라미터에 default value를 넣어 해당 value를 출력하게 합니다.   
+
+```python
+>>> site_stats = {'site': 'tecbeamers.com', 'traffic': 10000, "type": "organic"}
+>>> print(site_stats.pop("type", None))
+organic
+>>> print(site_stats)
+{'site': 'tecbeamers.com', 'traffic': 10000}
+```   
+
+__77. key의 존재유무를 어떻게 확인하나요?__   
+   
+"in" 연산자를 사용하여 dictionary 객체 내부의 key의 존재유무를 확인할 수 있습니다.   
+
+```python
+>>> site_stats = {'site': 'tecbeamers.com', 'traffic': 10000, "type": "organic"}
+>>> 'site' in site_stats
+True
+>>> 'traffic' in site_stats
+True
+>>> "type" in site_stats
+True
+```   
+
+__78. List comprehension을 위한 구문은 무엇인가요?__   
+   
+리스트 표현식을 위한 구문은 다음과 같습니다.   
+```python
+[ expression(var) for var in iterable ]
+```   
+
+예를 들어, 아래의 코드는 10~20까지의 모든 수를 반환하고 리스트에 저장합니다.   
+
+```python
+>>> alist = [var for var in range(10, 20)]
+>>> print(alist)
+```   
+
+__79. dictionary comprehension을 위한 구문은 무엇인가요?__   
+   
+dictionary는 리스트 표현식과 같은 구문을 가지지만 중괄호를 사용합니다.   
+
+```python
+{ aKey, itsValue for aKey in iterable }
+```   
+
+예를 들어, 아래의 코드는 key로 10~20까지의 모든 수를 반환하고 value로 각 수의 제곱값이 저장됩니다.   
+
+
+```python
+>>> adict = {var:var**2 for var in range(10, 20)}
+>>> print(adict)
+```   
+
+80. generator expression을 위한 구문은 무엇인가요?__   
+   
+generator 표현식은 리스트 표현식과 같지만 소괄호를 사용합니다.   
+
+```python
+( expression(var) for var in iterable )
+```   
+
+예를 들어, 아래의 코드는 10~20까지의 수로부터 값을 만드는 generator 객체를 생성합니다.   
+
+```python
+>>> (var for var in range(10, 20))
+ at 0x0000000003668728>
+>>> list((var for var in range(10, 20)))
+```   
+
+__81. conditional expression은 어떻게 작성하나요?__   
+   
+조건 표현법으로 아래의 한줄을 사용할 수 있습니다. \[조건문이 True일 경우 표현\] if \[조건\] else \[조건문이 False일 경우 표현\]   
+
+```python
+>>> no_of_days = 366
+>>> is_leap_year = "Yes" if no_of_days == 366 else "No"
+>>> print(is_leap_year)
+Yes
+```   
+
+__82. enumerate에 대해서 무엇을 알고 있나요?__   
+   
+iterator를 사용하면서 반복된 수를 저장하여 사용할 상황이 생길 수 있습니다. enumerate()로 알려진 내장함수를 사용하여 이러한 작업을 쉽게 할 수 있습니다.   
+   
+enumerate() 함수는 iterable에 카운터 변수를 붙이고 "enumerated" 객체로 반환합니다.   
+   
+"for"문에서 직접적으로 이러한 객체를 사용하거나 list() 함수를 호출함으로써 tuple의 리스트로 만들수도 있습니다.   
+
+```python
+enumerate(iterable, to_begin=0)
+```      
+```python
+Arguments:
+iterable: array type object which enables iteration
+to_begin: the base index for the counter is to get started, its default value is 0
+```      
+```python
+# Example - enumerate function 
+alist = ["apple","mango", "orange"] 
+astr = "banana"
+  
+# Let's set the enumerate objects 
+list_obj = enumerate(alist) 
+str_obj = enumerate(astr) 
+  
+print("list_obj type:", type(list_obj))
+print("str_obj type:", type(str_obj))
+
+print(list(enumerate(alist)) )  
+# Move the starting index to two from zero
+print(list(enumerate(astr, 2)))
+```   
+출력 결과:   
+```python
+list_obj type: <class 'enumerate'>
+str_obj type: <class 'enumerate'>
+[(0, 'apple'), (1, 'mango'), (2, 'orange')]
+[(2, 'b'), (3, 'a'), (4, 'n'), (5, 'a'), (6, 'n'), (7, 'a')]
+```   
+
+__83. globals() 함수는 무엇인가요?__   
+   
+globals() 함수는 dictionary 객체로 현재 global symbol table을 반환합니다.   
+   
+Python은 프로그램에 관한 모든 필수적인 정보를 symbol table에 유지합니다. 프로그램에 의해 사용되는 클래스, 함수, 변수의 이름을 포함됩니다.   
+이러한 테이블의 모든 정보는 프로그램의 global scope 유지되고 globals() 함수를 사용하여 정보를 찾을 수 있습니다.   
+```python
+Signature: globals()
+
+Arguments: None
+Yes
+```   
+```python
+# Example: globals() function 
+x = 9
+def fn(): 
+    y = 3
+    z = y + x
+    # Calling the globals() method
+    z = globals()['x'] = z
+    return z
+       
+# Test Code     
+ret = fn() 
+print(ret)
+Yes
+```   
+출력 결과:   
+```python
+12
+```   
+
+__84. zip() 함수는 왜 사용하나요?__   
+   
+zip 함수는 다양한 contaioner들의 일치하는 인덱스를 map하여 single unit으로 사용할 수 있게 해줍니다.   
+```python
+Signature: 
+ zip(*iterators)
+Arguments: 
+ Python iterables or collections (e.g., list, string, etc.)
+Returns: 
+ A single iterator object with combined mapped values
+```   
+```python
+# Example: zip() function
+  
+emp = [ "tom", "john", "jerry", "jake" ] 
+age = [ 32, 28, 33, 44 ] 
+dept = [ 'HR', 'Accounts', 'R&D', 'IT' ] 
+  
+# call zip() to map values 
+out = zip(emp, age, dept)
+  
+# convert all values for printing them as set 
+out = set(out) 
+  
+# Displaying the final values  
+print ("The output of zip() is : ",end="") 
+print (out)
+```   
+출력 결과:   
+```python
+The output of zip() is : {('jerry', 33, 'R&D'), ('jake', 44, 'IT'), ('john', 28, 'Accounts'), ('tom', 32, 'HR')}
+```   
+
+__85. class 또는 static 변수는 무엇인가요?__   
+   
+Python에서 모든 객체는 공통의 class 또는 static 변수를 공유합니다.   
+   
+하지만 instance 또는 non-static 변수는 다른 객체들과 완전히 다릅니다.   
+   
+C++, Java같은 프로그래밍 언어는 변수를 class 변수로 만들기 위해 static 키워드를 사용하지만 Python은 static 변수를 선언하기 위한 특별한 방식으로 사용합니다.   
+   
+class안에서 값을 가지고 초기화된 모든 이름은 class 변수가 되고 class 함수안에서 값이 할당되어지는 변수들은 instance 변수가 됩니다.   
+```python
+# Example 
+class Test: 
+    aclass = 'programming' # A class variable 
+    def __init__(self, ainst): 
+        self.ainst = ainst # An instance variable 
+  
+# Objects of CSStudent class 
+test1 = Test(1) 
+test2 = Test(2) 
+  
+print(test1.aclass)
+print(test2.aclass)
+print(test1.ainst)
+print(test2.ainst)
+
+# A class variable is also accessible using the class name
+print(Test.aclass)
+```   
+출력 결과:   
+```python
+programming
+programming
+1
+2
+programming
+```   
+
+__86. ternart operator는 어떻게 동작하나요?__   
+   
+삼항 조건 연산자는 조건문의 다른 방안이다. 테스트할 필요가 있는 구문을 true 또는 false 값과 결합한다.   
+   
+구문은 아래의 조어진 것과 같다.   
+   
+__\[조건문이 True일 경우 표현\] if \[조건\] else \[조건문이 False일 경우 표현\]__   
+```python
+x, y = 35, 75
+smaller = x if x < y else y
+print(smaller)
+```   
+
+__87. "self" 키워드는 무엇을 하나요?__   
+   
+self는 현재 객체의 instance를 담고있는 변수를 나타내는 Python 키워드입니다.   
+   
+거의 모든 객체 지향언어에서, 숨겨진 파라미터로 함수에 전달됩니다.   
+   
+__88. 객체를 복사하기위한 다른 방법이 무엇이 있나요?__   
+   
+객체를 복사하기 위한 2가지 방법이 있습니다.   
+- copy.copy() 함수   
+  - 원본으로부터 목적지로 파일의 복사본을 만듭니다.   
+  - 파라미터의 얕은 복사를 반환합니다.   
+- copy.deepcopy() 함수   
+  - 원본으로부터 목적지로 객체의 복사를 합니다.   
+  - 함수에 전달할 수 있는 파라미터의 깊은 복사를 반환합니다.   
+     
+__89. docsting의 목적은 무엇인가요?__   
+   
+docstring은 Python 함수, 모듈, 클래스에 대한 정보를 기록을 하는 과정입니다.   
+   
+__90. 어느 함수가 number를 string으로 변화시킬 수 있을까요?__   
+   
+숫자를 문자열로 바꾸기 위해서, 내장 함수 str()를 사용할 수 있습니다. 8진수 또는 16진수로 표현하고 싶다면, 내장 함수 oct() 또는 hex() 사용하면 됩니다.   
+   
+__91. 프로그램을 어떻게 디버그하나요? Python 코드를 단계별로 진행하는 것이 가능한가요?__   
+   
+Python debugger (pdb)를 사용하여 프로그램을 디버그 할 수 있습니다. pdb를 사용하여 프로그램을 시작하면, 코드 한 줄씩 진행할 수 있습니다.   
+   
+__92. pdb 명령어들을 적어주세요.__   
+   
+- breakpoint 추가하기 (b)reak   
+- 다음 breakpoint까지 연속적으로 코드 수행 (c)ontinue   
+- 현재 줄을 실행하고, 멈출 수 있는 가장 첫 번째 줄(호출되는 함수 또는 현재 함수의 다음 줄) (s)tep   
+- 현재 함수의 다음 줄에 도달하거나, 반환할 때까지 계속 실행  (n)ext   
+__+ next와 step의 차이점은 step은 호출된 함수 안에서 멈추고, next는 호출된 함수를 재빠르게 실행하고 현재 함수의 바로 다음 줄에서만 멈춥니다.__   
+- 소스 코드를 나열 (l)ist   
+- 표현식 출력 (p)expression   
+   
+__93. debug를 위한 명령어는 무엇인가요?__   
+   
+아래의 명령어는 디버그 모드에서 프로그램을 실행하게 도와줍니다.   
+```python
+$ python -m pdb python-script.py
+```   
+   
+__94. 코드의 흐름을 어떻게 모니터할 수 있나요?__   
+   
+프로그램내의 함수를 모니터하고 추적 설정을 위해 sys 모듈의 settrace()함수를 사용할 수 있습니다.   
+   
+trace callback 함수를 정의해야하고 settrace() 함수에 전달해야 합니다. callback은 아래의 보이는 것과 같이 세가지 인자 frame, event, arg 를 명시해야합니다.   
+```python
+import sys
+
+def trace_calls(frame, event, arg):
+    # The 'call' event occurs before a function gets executed.
+    if event != 'call':
+        return
+    # Next, inspect the frame data and print information.
+    print 'Function name=%s, line num=%s' % (frame.f_code.co_name, frame.f_lineno)
+    return
+
+def demo2():
+    print 'in demo2()'
+
+def demo1():
+    print 'in demo1()'
+    demo2()
+
+sys.settrace(trace_calls)
+demo1()
+```   
+   
+__95. generator는 언제 그리고 왜 사용하나요?__   
+   
+generator는 반복가능한 객체를 반환하는 함수입니다. yield 키워드를 사용하여 generator 객체를 반복할 수 있습니다. 하지만 메모리에서 값들을 유지하지 않기 때문에 오직 한번만 할 수 있습니다. 값을 필요할 때 얻을 수 있습니다.   
+   
+generator는 계속하기를 원하는 단계나 함수의 실행을 유지할 수 있게 해줍니다. generator를 사용으로 인한 이점의 예가 있습니다.   
+   
+- 큰 데이터 셋과 관련된 결과를 효율적으로 계산하기 위해서 generator를 가지고 loop를 돌릴 수 있습니다.   
+- generator는 잠시 붙잡아두기를 바라거나 모든 결과를 원하지 않을 때 유용합니다.   
+- callback 함수 대신 generator를 사용할 수 있습니다. callback과 같은 기능을 하는 함수 내부에 loop를 작성하여 generator로 만들 수 있습니다.   
+   
+__96. yield 키워드는 무엇을 하나요?__   
+   
+yield 키워드는 함수를 generator로 만들 수 있습니다. 표준 return 키워드 같이 작동하지만 항상 generator 객체를 반환합니다. 또한 함수가 다수의 yield 키워드를 가질 수 있습니다.
+   
+아래의 예를 보시죠:   
+```python
+def testgen(index):
+  weekdays = ['sun','mon','tue','wed','thu','fri','sat']
+  yield weekdays[index]
+  yield weekdays[index+1]
+
+day = testgen(0)
+print next(day), next(day)
+
+#output: sun mon
+```   
+   
+__97. list를 다른 데이터로 어떻게 변환하나요?__   
+   
+__list를 string으로 변환__   
+   
+".join()" 함수를 사용하여 모든 요소를 하나로 결합하고 string으로 반환합니다.   
+```python
+weekdays = ['sun','mon','tue','wed','thu','fri','sat']
+listAsString = ' '.join(weekdays)
+print(listAsString)
+
+#output: sun mon tue wed thu fri sat
+```   
+   
+__list를 tuple으로 변환__   
+   
+tuple() 함수를 사용하여 list를 tuple로 변환합니다.   
+   
+이 함수는 인자로 list를 받습니다.   
+   
+하지만, list가 immutable해지기 때문에 list를 tuple로 변환 후에는 해당 list를 변경하지 못한다는 것을 명심해야합니다.   
+```python
+weekdays = ['sun','mon','tue','wed','thu','fri','sat']
+listAsTuple = tuple(weekdays)
+print(listAsTuple)
+
+#output: ('sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat')
+```   
+   
+__list를 set으로 변환__   
+   
+set으로 변환시킬 시 두 가지 부작용이 일어납니다.   
+   
+- set은 중복 요소를 허용하지 않기때문에 변환이 중복된 item을 제거할 것입니다.   
+- set은 비정렬된 모음입니다. list item의 순서가 변경될 수 있습니다.   
+   
+set()을 사용하여 list를 set으로 변환할 수 있습니다.   
+   
+```python
+weekdays = ['sun','mon','tue','wed','thu','fri','sat','sun','tue']
+listAsSet = set(weekdays)
+print(listAsSet)
+
+#output: set(['wed', 'sun', 'thu', 'tue', 'mon', 'fri', 'sat'])
+```   
+   
+__list를 dictionary로 변환__   
+   
+dictionary에서 각 아이템은 key-value 쌍입니다. 그러므로 dictionary를 다른 자료형으로 직접 변환하는 것은 간단하지 않습니다.   
+   
+하지만, list를 쌍들의 집합으로 나누고 tuple로 반환하기 위해 zip() 함수를 사용함으로써 변환시킬 수 있습니다.   
+   
+tuple들을 dict() 함수에 전달하는 것으로 리스트를 마침내 dictionary로 만들게 됩니다.   
+   
+```python
+weekdays = ['sun','mon','tue','wed','thu','fri']
+listAsDict = dict(zip(weekdays[0::2], weekdays[1::2]))
+print(listAsDict)
+
+#output: {'sun': 'mon', 'thu': 'fri', 'tue': 'wed'}
+```   
+   
+__98. 어떤 방법으로 리스트의 각 아이템이 몇 번 발견되는 지 셀 수 있을까요?__   
+   
+set과 달리, list는 중복 값을 가지는 아이템을 가질 수 있습니다.   
+   
+list는 특정 아이템이 몇 번 발견되는지 조사하고 그 수를 반환하는 count() 함수를 가지고 있습니다.   
+
+__개별 아이템의 빈도 수__   
+```python
+weekdays = ['sun','mon','tue','wed','thu','fri','sun','mon','mon']
+print(weekdays.count('mon'))
+
+#output: 3
+```   
+
+__list에서 각 아이템의 빈도 수__   
+   
+count() 함수와 리스트 표현식을 사용하여 각 아이템의 빈도를 출력할 수 있습니다.   
+
+```python
+weekdays = ['sun','mon','tue','wed','thu','fri','sun','mon','mon']
+print([[x,weekdays.count(x)] for x in set(weekdays)])
+
+#output: [['wed', 1], ['sun', 2], ['thu', 1], ['tue', 1], ['mon', 3], ['fri', 1]]
+```   
+
+__99. numpy가 무엇이며 어떠한 이유로 list보다 더 나은가요?__   
+   
+numpy는 거대한 데이터 사이즈를 다룰 수 있는 scientific computing을 위한 Python 패키지입니다. 고수준 기능의 set과 강력한 n차원 배열 객체를 포함합니다.   
+   
+또한, numpy 배열은 내장 list보다 우수합니다.   
+- numpy 배열은 list보다 더 compact합니다.   
+- numpy로 아이템을 읽고 쓰기가 더 빠릅니다.   
+- numpy 사용하는 것이 표준 list보다 더 편리합니다.   
+- numpy 배열은 list의 기능을 증대시키는 것과 같이 더 효율적입니다.   
+   
+__100. 빈 numpy 배열을 생성하는 방법들이 무엇이 있을까요?__   
+   
+2가지 방법이 있습니다.   
+   
+__첫번째 방법__   
+```python
+import numpy
+numpy.array([])
+```   
+__두번째 방법__   
+```python
+# Make an empty NumPy array
+numpy.empty(shape=(0,0))
+```   
+
 
 ## Reference
-* TechBeamers
-<https://www.techbeamers.com/python-interview-questions-programmers/>
+* TechBeamers - <https://www.techbeamers.com/python-interview-questions-programmers/>
+* 코딩 도장 - <https://dojang.io/course/view.php?id=7>
 
 
