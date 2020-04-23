@@ -129,6 +129,8 @@ __Lambda vs. def__
 
 __11. Python 모듈 "re"를 사용하여 email id를 확인하는 정규표현식을 작성해보세요.__   
    
+[코딩 도장](https://dojang.io/mod/page/view.php?id=2454) 추가 설명 - 정규표현식은 일정한 규칙을 가진 문자열을 표현하는 방법입니다. 문자열 속에서 특정한 규칙으로 된 문자열을 검색한 뒤 추출하거나 바꿀 때, 문자열이 정해진 규칙에 맞는지 판단할 때 사용합니다.   
+   
 Python은 정규표현식 모듈 "re"를 가지고 있습니다.   
 서브도메인에 있는 .com과 .co.를 검사하여 email id를 확인할 수 있는 "re" 표현법을 확인해보세요.   
 ```python
@@ -583,9 +585,45 @@ Manager
 
 __62. Inhertance는 무엇인가요?__   
    
-상속은 자식 class가 부모 class의 특성에 대한 접근을 하게 하는 OOP 메카니즘입니다. 부모 class의 기능들을 자식 class로 이월합니다.   
+__[코딩 도장](https://dojang.io/mod/page/view.php?id=2396) 추가 설명__ - 클래스 상속은 물려받은 기능을 유지한채로 다른 기능을 추가할 때 사용합니다. 기능을 물려주는 클래스를 기반 클래스, 상속을 받아 새롭게 만드는 클래스를 파생 클래스라고 합니다.   
    
-공통 코드는 부모 class가 가지고 있고 자식 class 객체는 상속을 통해 해당 코드에 대한 접근을 할 수 있습니다. 아래의 예를 확인해보죠.   
+상속은 클래스를 만들 때 ( )(괄호)를 붙이고 괄호 안에 기반 클래스 이름을 넣어줍니다.   
+```python
+class 기반클래스이름:
+    코드
+ 
+class 파생클래스이름(기반클래스이름):    # 기반 클래스를 상속받음
+    코드
+```   
+기반 클래스의 속성에 접근하거나 메서드를 호출할 때는 super() 뒤에 .을 붙여서 사용합니다. 또는, super(파생클래스, self) 형식으로 사용할 수도 있습니다.   
+```python
+class 기반클래스이름:
+    def __init__(self):
+        self.속성 = 값
+ 
+class 파생클래스이름(기반클래스이름):
+    def __init__(self):
+        super().__init__()              # super()로 기반 클래스의 메서드 호출
+        super().속성                    # super()로 기반 클래스의 속성에 접근
+        super(파생클래스, self).속성    # super에 파생 클래스와 self를 넣는 형식
+```   
+__다중 상속__   
+   
+다중 상속은 여러 기반 클래스로부터 상속을 받아서 파생 클래스를 만드는 방법입니다. 클래스를 만들 때 ( )(괄호) 안에 클래스 이름을 ,(콤마)로 구분해서 넣어줍니다.   
+```python
+class 기반클래스이름1:
+    코드
+ 
+class 기반클래스이름2:
+    코드
+ 
+class 파생클래스이름(기반클래스이름1, 기반클래스이름2):    # 다중 상속 사용하기
+    코드
+```   
+
+본문 - 상속은 파생 class가 기반 class의 특성에 대한 접근을 하게 하는 OOP 메카니즘입니다. 기반 class의 기능들을 파생 class로 이월합니다.   
+   
+공통 코드는 기반 class가 가지고 있고 파생 class 객체는 상속을 통해 해당 코드에 대한 접근을 할 수 있습니다. 아래의 예를 확인해보죠.   
 ```python
 class PC: # Base class
     processor = "Xeon" # Common attribute
@@ -656,7 +694,33 @@ error는 비정상적 종료를 야기하는 코딩 이슈입니다.
    
 __65. try/except/finally를 가지고 어떻게 exception을 처리하나요?__   
    
-exception과 같은 에러를 처리하기위해 try,except,finally 구조를 사용합니다. try block 아래에 에러발생 가능성이 있는 코드를 작성합니다. except block에 에러 발생시 작동시킬 코드를 작성합니다. 어떠한 경우에서라도 마지막에 실행되어야만 하는 코드는 finally block에 와야합니다.   
+__[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 예외란 코드 실행 중에 발생한 에러를 뜻합니다. 예외 처리를 하려면 try에 실행할 코드를 넣고 except에 예외가 발생했을 때 처리할 코드를 넣어줍니다. 그리고 else는 예외가 발생하지 않았을 때 코드를 실행하며 finally는 예외 발생 여부와 상관없이 항상 코드를 실행합니다.   
+```python
+try:
+    실행할 코드
+except:
+    예외가 발생했을 때 처리하는 코드
+else:
+    예외가 발생하지 않았을 때 실행할 코드
+finally:
+    예외 발생 여부와 상관없이 항상 실행할 코드
+```   
+try의 코드가 에러 없이 잘 실행되면 except의 코드는 실행되지 않으며 try의 코드에서 에러가 발생했을 때만 except의 코드가 실행됩니다.   
+   
+except에 예외 이름을 지정하면 특정 예외가 발생했을 때만 처리 코드를 실행할 수 있습니다. 그리고 except에서 as 뒤에 변수를 지정하면 발생한 예외의 에러 메시지를 받아옵니다.   
+```python
+try:
+    실행할 코드
+except 예외이름:            # 특정 예외가 발생했을 때만 처리 코드를 실행
+    예외가 발생했을 때 처리하는 코드
+ 
+try:
+    실행할 코드
+except 예외이름 as 변수:    # 발생한 예외의 에러 메시지가 변수에 들어감
+    예외가 발생했을 때 처리하는 코드
+```   
+
+본문 - exception과 같은 에러를 처리하기위해 try,except,finally 구조를 사용합니다. try block 아래에 에러발생 가능성이 있는 코드를 작성합니다. except block에 에러 발생시 작동시킬 코드를 작성합니다. 어떠한 경우에서라도 마지막에 실행되어야만 하는 코드는 finally block에 와야합니다.   
 ```python
 try:
     print("Executing code in the try block")
@@ -675,7 +739,38 @@ Reached to the final block
 
 __66. 어떻게 미리 정의된 조건에 대한 exception을 발생시킬까요?__   
    
-조건에 따라 exception을 일으킬 수 있습니다.   
+__[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 예외를 발생시킬 때는 raise에 Exception을 지정하고 에러 메시지를 넣습니다.   
+```python
+try:
+    raise Exception(에러메시지)    # 예외를 발생시킴
+except Exception as e:             # 예외가 발생했을 때 실행됨
+    print(e)                       # Exception에 지정한 에러 메시지가 e에 들어감
+```   
+except 안에서 raise만 사용하면 현재 예외를 다시 상위 코드 블록으로 넘깁니다.   
+```python
+def 함수A():
+    try:
+        raise Exception(에러메시지)    # 예외를 발생시킴
+    except Exception as e:             # 함수 안에서 예외를 처리함
+        raise                          # raise만 사용하면 현재 예외를 다시 상위 코드 블록으로 넘김
+ 
+try:
+    함수A()
+except Exception as e:                 # 하위 코드 블록에서 예외가 발생해도 실행됨
+    print(e)
+```   
+__예외 만들기__   
+   
+예외를 만들 때는 Exception을 상속받아서 새로운 클래스를 만들고, __init__ 메서드에서 기반 클래스의 __init__ 메서드를 호출하면서 에러 메시지를 넣어줍니다. 예외를 발생시킬 때는 raise에 새로 만든 예외를 지정해줍니다.   
+```python
+class 예외이름(Exception):    # 예외 만들기
+    def __init__(self):
+        super().__init__('에러메시지')
+ 
+raise 예외                    # 예외 발생 시키기
+```   
+
+본문 - 조건에 따라 exception을 일으킬 수 있습니다.   
    
 예를 들어, 사용자가 홀수만 입력하게 한다면, 짝수 입력 시 exception을 일으킵니다.   
 ```python
@@ -702,19 +797,82 @@ Value entered is : 1
 Enter an odd number-
 ```   
 
-__67. iterattios는 무엇인가요?__   
+__67. iterators는 무엇인가요?__   
    
-iterator는 다음 요소로 이동하게 하는 배열같은 객체입니다. for문과 같은 loop에서 사용합니다.   
+__[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 클래스에서 __iter__, __next__ 메서드를 구현하면 이터레이터가 됩니다. 또한, 이렇게 만든 이터레이터는 반복 가능한 객체이면서 이터레이터입니다. 이터레이터(제너레이터)는 변수 여러 개에 값을 저장하는 언패킹이 가능합니다.   
+```python
+class 이터레이터이름:
+    def __iter__(self):
+        return self
+ 
+    def __next__(self):
+        값 생성 코드, 반복을 끝내려면 StopIteration 예외를 발생시킴
+ 
+이터레이터객체 = 이터레이터()    # 이터레이터 객체 생성
+이터레이터.__next__()            # 이터레이터에서 값을 차례대로 꺼냄
+next(이터레이터)                 # next 함수 사용
+ 
+for i in 이터레이터():    # 이터레이터를 반복문에 사용
+    pass
+```
+클래스에 __getitem__ 메서드를 구현하면 인덱스로 접근할 수 있는 이터레이터가 됩니다. 이때는 __iter__와 __next__ 메서드는 생략해도 됩니다.   
+```python
+class 이터레이터이름:
+    def __getitem__(self, index):
+        인덱스에 해당하는 값을 반환하는 코드, 지정된 범위를 벗어났다면 IndexError 예외를 발생시킴
+ 
+이터레이터객체 = 이터레이터()    # 이터레이터 객체 생성
+이터레이터객체[인덱스]           # 인덱스로 접근
+```
+
+본문 - iterator는 다음 요소로 이동하게 하는 배열같은 객체입니다. for문과 같은 loop에서 사용합니다.   
    
 Python library는 iterator의 번호를 가지고 있습니다. 예를 들어, list는 iterator이고 loop문을 통해 사용할 수 있습니다.   
 
 __68. iterable과 iterator사이에 차이점은 무엇인가요?__   
    
-set, list, tuple, dictionary, list 같은 모음 자료형은 모두 iterable한 객체이기도 하지만 iterator를 반환하는 iterable한 container입니다.   
+__[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 반복 가능한 객체는 문자열, 리스트, 튜플, range, 딕셔너리, 세트 등이 있습니다. 반복 가능한 객체에서 __iter__ 메서드 또는 iter 함수를 호출하면 이터레이터가 나옵니다. 이터레이터에서 __next__ 메서드 또는 next 함수를 호출하면 반복 가능한 객체의 요소를 차례대로 꺼낼 수 있습니다. 반복 가능한 객체는 요소를 한 번에 하나씩 꺼낼 수 있는 객체이고, 이터레이터는 __next__ 메서드를 사용해서 차례대로 값을 꺼낼 수 있는 객체입니다.      
+```python
+이터레이터 = 반복가능한객체.__iter__()    # 반복가능한 객체에서 이터레이터를 얻음
+이터레이터.__next__()                     # 반복 가능한 객체의 요소를 차례대로  꺼냄
+ 
+이터레이터 = iter(반복가능한객체)         # iter 함수 사용
+next(이터레이터)                          # next 함수 사용
+```   
+
+본문 - set, list, tuple, dictionary, list 같은 모음 자료형은 모두 iterable한 객체이기도 하지만 iterator를 반환하는 iterable한 container입니다.   
    
 __69. generator는 무엇인가요?__   
    
-generator는 iterator와 같이 동작하는 함수를 선언할 수 있게 해주는 기능이며 for문에서 사용될 수 있습니다.   
+__[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 제너레이터는 이터레이터를 생성해주는 함수이며 함수 안에서 yield 키워드만 사용하면 됩니다. 제너레이터 함수를 호출하면 제너레이터 객체가 반환되고, 제너레이터 객체에서 __next__ 메서드 또는 next 함수를 호출하면 yield까지 실행한 뒤 yield에 지정한 값이 반환값으로 나옵니다.   
+```python
+def 제너레이터이름():     # 제너레이터 함수를 만듦
+    yield 값              # yield로 값을 발생시킴
+ 
+제너레이터객체 = 제너레이터()    # 제너레이터 객체 생성
+제너레이터객체.__next__()        # __next__ 메서드를 호출하면 yield에 지정한 값이 반환값으로 나옴
+next(제너레이터)                 # next 함수 사용
+ 
+for i in 제너레이터():           # 제너레이터를 반복문에 사용
+    pass
+```   
+yield는 값을 함수 바깥으로 전달하면서 코드 실행을 함수 바깥에 양보합니다.   
+   
+yield from을 사용하면 값을 여러 번 바깥으로 전달합니다.   
+```python
+yield from 반복가능한객체
+yield from 이터레이터
+yield from 제너레이터객체
+```   
+__제너레이터 표현식__   
+   
+리스트 표현식을 [ ](대괄호) 대신 ( )(괄호)로 묶으면 제너레이터 표현식이 됩니다.   
+```python
+(식 for 변수 in 반복가능한객체)
+(i for i in range(100))
+```   
+
+본문 - generator는 iterator와 같이 동작하는 함수를 선언할 수 있게 해주는 기능이며 for문에서 사용될 수 있습니다.   
 ```python
 # Simple Python function
 def fn():
@@ -733,7 +891,27 @@ Python Generator function.
 
 __70. closures은 무엇인가요?__   
    
-closures는 다른 함수에 의해 반환된 함수 객체입니다. 코드 중복을 제거하기 위해 사용합니다.   
+__[코딩 도장](https://dojang.io/mod/page/view.php?id=2370) 추가 설명__ - 클로저는 함수를 둘러싼 환경(지역 변수, 코드 등)을 계속 유지하다가 함수를 호출할 때 다시 꺼내서 사용하는 함수를 뜻합니다. 따라서 클로저는 지역 변수와 코드를 묶어서 사용하고 싶을 때 활용합니다. 또한, 클로저에 속한 지역 변수는 바깥에서 직접 접근할 수 없으므로 데이터를 숨기고 싶을 때 활용합니다.   
+```python
+def calc():    # calc 함수 안에 mul_add 함수를 만듦
+    a = 3
+    b = 5
+    def mul_add(x):
+        return a * x + b    # 함수 바깥쪽에 있는 지역 변수 a, b를 사용하여 계산
+    return mul_add          # mul_add 함수를 반환
+ 
+c = calc()    # c에 저장된 함수가 클로저
+print(c(1), c(2), c(3), c(4), c(5))    # 8 11 14 17 20
+```   
+클로저는 람다 표현식으로도 만들 수 있습니다.   
+```python
+def calc():
+    a = 3
+    b = 5
+    return lambda x: a * x + b    # 람다 표현식을 반환
+```   
+
+본문 - closures는 다른 함수에 의해 반환된 함수 객체입니다. 코드 중복을 제거하기 위해 사용합니다.   
    
 아래의 예에서, 숫자들을 곱하기 위한 간단한 closure를 작성했습니다.   
 ```python
@@ -759,7 +937,84 @@ print(num_6(1))
 
 __71. Decorator는 무엇인가요?__   
    
-동적으로 주어진 객체에 새로운 기능을 추가할 수 있는 능력입니다. 아래의 예에서, 함수의 실행 전과 후의 메세지를 보여주기위한 간단한 예를 작성하였습니다.   
+__[코딩 도장](https://dojang.io/mod/page/view.php?id=2454) 추가 설명__ - 데코레이터는 함수를 수정하지 않은 상태에서 추가 기능을 구현할 때 사용합니다.   
+데코레이터는 함수를 수정하지 않은 상태에서 추가 기능을 구현할 때 사용합니다. 먼저 데코레이터는 호출할 함수를 매개변수로 받고, 호출할 함수를 감싸는 함수 wrapper를 만듭니다. 그리고 wrapper 함수 안에서는 매개변수로 받은 func를 호출하고, 함수 바깥에서는 return을 사용하여 wrapper 함수 자체를 반환합니다. 데코레이터를 사용할 때는 호출할 함수 위에 @데코레이터를 형식으로 지정해줍니다.   
+```python
+def 데코레이터이름(func):    # 데코레이터는 호출할 함수를 매개변수로 받음
+    def wrapper():           # 호출할 함수를 감싸는 함수
+        func()               # 매개변수로 받은 함수를 호출
+    return wrapper           # wrapper 함수 반환
+ 
+@데코레이터                  # 데코레이터 지정
+def 함수이름():
+    코드
+```
+__함수의 매개변수와 반환값을 처리하는 데코레이터__   
+   
+데코레이터에서 함수의 매개변수와 반환값을 처리할 때는 wrapper 함수의 매개변수를 호출할 함수의 매개변수와 똑같이 지정하고, func에 매개변수를 넣어서 호출하고 반환하면 됩니다.   
+```python
+def 데코레이터이름(func):                     # 데코레이터는 호출할 함수를 매개변수로 받음
+    def wrapper(매개변수1, 매개변수2):        # 호출할 함수의 매개변수와 똑같이 지정
+        return func(매개변수1, 매개변수2)     # func에 매개변수를 넣어서 호출하고 반환값을 반환
+    return wrapper                            # wrapper 함수 반환
+ 
+@데코레이터                                   # 데코레이터 지정
+def 함수이름(매개변수1, 매개변수2):           # 매개변수는 두 개
+    코드 
+```   
+   
+__매개변수가 있는 데코레이터__   
+   
+매개변수가 있는 데코레이터는 값을 지정해서 동작을 바꿀 수 있습니다. 이때는 데코레이터가 사용할 매개변수를 지정하고, 실제 데코레이터 역할을 하는 real_decorator 함수를 만듭니다. 그다음에 real_decorator 함수 안에서 wrapper 함수를 만들어줍니다.   
+```python
+def 데코레이터이름(매개변수):                    # 데코레이터가 사용할 매개변수를 지정
+    def real_decorator(func):                    # 호출할 함수를 매개변수로 받음
+        def wrapper(매개변수1, 매개변수2):       # 호출할 함수의 매개변수와 똑같이 지정
+            return func(매개변수1, 매개변수2)    # func를 호출하고 반환값을 반환
+        return wrapper                           # wrapper 함수 반환
+    return real_decorator                        # real_decorator 함수 반환
+ 
+@데코레이터(인수)                                # 데코레이터를 지정하면서 인수를 넣음
+def 함수이름(매개변수1, 매개변수2):
+    코드
+```   
+__클래스로 데코레이터 만들기__   
+   
+클래스로 데코레이터를 만들 때는 인스턴스를 함수처럼 호출하게 해주는 __call__ 메서드를 구현하고, __call__ 메서드에서 호출할 함수의 매개변수를 처리해줍니다.   
+```python
+class 데코레이터이름:
+    def __init__(self, func):    # 호출할 함수를 인스턴스의 초깃값으로 받음
+        self.func = func         # 호출할 함수를 속성 func에 저장
+ 
+    def __call__(self, 매개변수1, 매개변수2):     # __call__에서 호출할 함수의 매개변수 처리
+        return self.func(매개변수1, 매개변수2)    # self.func에 매개변수를 넣어서 호출하고
+                                                  # 반환값을 반환
+@데코레이터                      # 데코레이터 지정
+def 함수이름(매개변수1, 매개변수2):
+    코드
+```   
+
+__매개변수가 있는 클래스 데코레이터 만들기__  
+   
+__init__ 메서드에서 데코레이터가 사용할 매개변수를 초깃값으로 받고, __call__ 메서드에서 호출할 함수를 매개변수를 받습니다. 그리고 __call__ 함수 안에서 wrapper 함수를 만들고 호출할 함수의 매개변수를 처리해주면 됩니다.   
+
+```python
+class 데코레이터이름:
+    def __init__(self, 매개변수):    # 데코레이터가 사용할 매개변수를 초깃값으로 받음
+        self.속성 = 매개변수         # 매개변수를 속성에 저장
+ 
+    def __call__(self, func):                    # 호출할 함수를 매개변수로 받음
+        def wrapper(매개변수1, 매개변수2):       # 호출할 함수의 매개변수 처리
+            return func(매개변수1, 매개변수2)    # func를 호출하고 반환값을 반환
+        return wrapper                           # wrapper 함수 반환
+ 
+@데코레이터(인수)                    # 데코레이터를 지정하면서 인수를 넣음
+def 함수이름(매개변수1, 매개변수2):
+    코드
+```   
+
+본문 - 주어진 객체에 동적으로 새로운 기능을 추가할 수 있는 능력입니다. 아래의 예에서, 함수의 실행 전과 후의 메세지를 보여주기위한 간단한 예를 작성하였습니다.   
+
 ```python
 def decorator_sample(func):
     def decorator_hook(*args, **kwargs):
