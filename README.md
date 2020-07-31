@@ -1,13 +1,13 @@
-# Python
+# :snake: Python
 
 ### 100 Essential Python Interview Questions - Python 필수 면접 질문 100 가지   
 __직접 번역을 하기때문에 틀리거나 어색한 부분이 있을 경우 말씀해주시면 감사하겠습니다. 수정하겠습니다.:bow:   
 중요하다고 생각되는 부분은 옆에 :star: 처리 해놓았습니다.___
 
 
-## 100개의 질의   
+## :bookmark_tabs: 100개의 질의   
 1. [Python?, Python의 장점?, PEP8?](#1-python은-무엇이고-장점은-무엇이며-그리고-pep8을-아십니까)__   
-2. [다음 코드의 결과는? (함수 호출 관련 문제)](#2-다음-python-코드의-출력은-어떻게-나올까요)   
+2. [다음 코드의 결과는? (함수 호출 관련)](#2-다음-python-코드의-출력은-어떻게-나올까요)   
 3. [pass 구문이란?](#3-프로그램이-어떠한-행위를-할-필요는-없지만-구문이-필요할-경우-python에서-사용될-수-있는-문법은-무엇일까요)   
 4. [홈 디렉토리를 알 수 있는 방법은?](#4-python에서-를-사용하여-홈-디렉토리를-얻기위한-프로세스는-무엇일까요)   
 5. [Python에 내장된 자료형은?](#5-python에서-내장된-자료형은-무엇이-있을까요) :star:      
@@ -16,17 +16,48 @@ __직접 번역을 하기때문에 틀리거나 어색한 부분이 있을 경�
 8. [튜플과 리스트의 차이점?](#8-튜플과-리스트-사이에-주된-차이점은-무엇인가요) :star:     
 9. [Python의 메모리 관리 방법은?](#9-python은-어떻게-메모리-관리를-하나요) :star: (보충 필요)      
 10. [lambda와 def의 차이점?](#10-lambda와-def-사이에-주된-차이점은-무엇인가요) :star: (보충 필요)      
-11. [](#11)   
-12. [](#12)   
-13. [](#13)   
-14. [](#14)   
-15. [](#15)   
-16. [](#16)   
-17. [](#17)   
-18. [](#18)   
-19. [](#19)   
-20. [](#20)   
-21. [](#21)   
+11. [모듈 re를 사용하여 email-id를 확인하는 정규표현식은?](#11-python-모듈-re를-사용하여-email-id를-확인하는-정규표현식을-작성해보세요)   
+12. [다음 코드의 결과는? (리스트 인덱스 관련)](#12-다음-코드의-결과가-무엇일까요-코드에-에러가-있나요)   
+13. [switch-case문이 존재하나요?](#13-python에서-switch-또는-case문이-있나요-그렇지-않다면-같은-기능을-하는-대체가-무엇인가요) :star:      
+14. [연속되는 숫자를 반복하기 위해서 사용하는 내장함수는?](#14-python이-연속되는-숫자를-반복하기-위해서-사용하는-내장-함수는-무엇인가요)   
+15. [try-except에서 사용할 수 있는 문법은?](#15-try-except-block-내부에서-가능한-문법은-무엇일까요) :star:      
+16. [string이란?](#16-python에서-string은-무엇인가요) :star:   
+17. [slicing이란?](#17-python에서-slicing은-무엇인가요) :star:   
+18. [%s의 의미는?](#18-python에서-s는-무엇인가요)   
+19. [string은 immutable or mutable?](#19-python에서-string은-immutable-or-mutable-인가요)   
+20. [index란?](#20-python에서-index는-무엇인가요)   
+21. [docstring이란?](#21-python에서-docstring은-무엇인가요) (보충 필요)  
+22. [함수란?](#22-python-programming에서-함수는-무엇인가요)   
+23. [함수의 종류 무엇이 있나요?](#23-python에서-얼마-만큼의-기본형-함수들이-이용-가능한가요)   
+24. [함수 작성 방법](#24-python에서-어떻게-함수를-작성하나요)   
+25. [함수는 호출가능한 객체인가요?](#25-python에서-함수-호출-또는-호출가능한-객체는-무엇인가요)   
+26. [return이란?](#26-python에서-사용되는-단어-return은-무엇인가요)   
+27. [Call-by-value란?](#27-python에서-call-by-value는-무엇인가요) :star:     
+28. [Call-by-reference란?](#28-python에서-call-by-reference는-무엇인가요) :star:   
+29. [trunc()의 반환 값은?](#29-trunc-함수의-반환-값은-무엇인가요)   
+30. [함수는 반드시 값을 반환해야 하나요?](#30-python-함수는-반드시-값을-반환해야-하나요)     
+31. [](#31-)   
+32. [](#32-)   
+33. [](#33-)   
+34. [](#34-)   
+35. [](#35-)   
+36. [](#36-)   
+37. [](#37-)   
+38. [](#38-)   
+39. [](#39-)   
+40. [](#40-)   
+41. [](#4)   
+50. [](#50-)   
+51. [](#5)  
+60. [](#60-)   
+61. [](#6)   
+70. [](#70-)    
+71. [](#7)   
+80. [](#80-)   
+81. [](#8)   
+90. [](#90-)   
+91. [](#9)   
+100. [](#100)   
 
 
 
@@ -187,11 +218,18 @@ print (list[10:])
    
 원소 수를 넘어가는 인덱스를 사용하여 리스트로부터 원소를 불러오는 것(예를 들어, 문제에서 주어진 list[10]에 접근하려는 시도)은 IndexError를 발생시킬 수 있습니다. 하지만, 단지 리스트에서 아이템의 갯수가 넘어가는 인덱스로부터 슬라이스하는 것은 IndexError라는 결과를 가져오지 않습니다. 그냥 빈 리스트만 반환하게 됩니다.   
 
-__13. Python에서 switch 또는 case문이 있나요? 그렇지 않다면 같은 기능을 하는 대체가 무엇인가요?__   
+#### 13. Python에서 switch 또는 case문이 있나요? 그렇지 않다면 같은 기능을 하는 대체가 무엇인가요?   
    
-Python은 switch문이 없습니다. 하지만 switch 함수를 작성하여 사용할 수 있습니다.   
+Python은 switch문이 없습니다. 하지만 딕셔너리 또는 `if/elif`를 사용하여 switch 함수를 작성하여 사용할 수 있습니다.   
+일반적인 경우 `if/elif`를 사용하며 많은 경우 중 하나를 택해야 하는 경우에는 딕셔너리를 사용합니다.   
+```python
+def switch(x):
+  return {'a': '1', 'b': '2'}[x]
+  return {'a': '1', 'b': '2'}[x].get(x,'3') # 없는 키에 대한 값을 3으로 return할 수 있습니다.   
+  return {'a': lambda i: i*10, 'b': lambda i: i+10}[x](10) # switch('a') => 100
+```   
 
-__14. Python이 연속되는 숫자를 반복하기 위해서 사용하는 내장 함수는 무엇인가요?__   
+#### 14. Python이 연속되는 숫자를 반복하기 위해서 사용하는 내장 함수는 무엇인가요?   
    
 range()는 반복문을 통해 반복하기 위해 사용되어지는 숫자들의 리스트를 생성합니다.   
 ```python
@@ -210,7 +248,7 @@ range() 함수는 파라미터 두 세트가 필요합니다.
   - 매개변수는 양수 또는 음수가 될 수 있습니다.   
   - range() 함수는 인덱스가 0부터 시작합니다.   
 
-__15. try-except block 내부에서 가능한 문법은 무엇일까요?__   
+#### 15. try-except block 내부에서 가능한 문법은 무엇일까요?   
    
 __try-except__ block에서 사용할 수 있는 두 옵션이 있습니다.   
 - "else" 절
@@ -218,30 +256,30 @@ __try-except__ block에서 사용할 수 있는 두 옵션이 있습니다.
 - "finally" 절   
   - 예외가 발생하든 안하든 개의치않고 일부 코드를 실행시키기를 원할 경우 유용합니다.   
 
-__16. Python에서 string은 무엇인가요?__   
+#### 16. Python에서 string은 무엇인가요?   
    
 Python에서 string은 글자와 숫자로 된 연속이며 immutable한 객체입니다. 한번 값을 할당되면 수정을 허락하지 않습니다. Python에서는 join(), replace(), split() 같은 string을 변화시켜주는 함수들을 제공합니다. 하지만 이 중 어느 것도 원래 객체를 변경하지는 않습니다.   
 
-__17. Python에서 slicing은 무엇인가요?__   
+#### 17. Python에서 slicing은 무엇인가요?   
    
 slicing은 string의 한 부분을 추출하거나 list의 부분을 추출하기 위한 일련의 작업입니다. string(text)는 인덱스가 0부터 시작하고 n번째 글자는 text[n-1]에 담겨있습니다. Python은 인덱스를 뒤바꿀 수 있습니다. 예를 들어, 음수를 가지고 반대 방향으로 만들 수 있습니다. slice()는 또한 slice 객체를 생성하는 생성자 함수를 가지고 있습니다. 결과는 range(start,stop,step)에 의해 언급되어진 지시의 집합입니다. slice() 함수는 3개의 매개변수를 허용합니다.   
 1. start - slicing을 시작할 시작 숫자   
 2. stop - slicing의 끝을 나타내는 숫자   
 3. step - 인덱스가 증가하는 값 (default = 1)   
 
-__18. Python에서 %s는 무엇인가요?__   
+#### 18. Python에서 %s는 무엇인가요?   
    
 Python은 어떠한 값이든 string으로 formatting 하는것을 지원합니다. 다소 복잡한 표현이 있을 수도 있습니다.   
    
 흔한 관행 중 하나는 값들을 %s format specifier를 가지고 string으로 만드는 것입니다. Python에서 formatting 작업은 C 함수 printf()가 가진 것처럼 유사한 syntax를 가지고 있습니다.   
 
-__19. Python에서 string은 immutable or mutable 인가요?__   
+#### 19. Python에서 string은 immutable or mutable 인가요?   
 
 string은 immutable합니다.   
    
 예를 들어 봅시다. "str" 변수가 string 값을 가지고 있는 있을 경우 변수를 담고 있는 컨테이너를 변화시킬 수 없습니다. 예를 들어, 변수의 값을 의미하고 있는 string이 가지는 값만 수정할 수 있습니다.   
 
-__20. Python에서 index는 무엇인가요?__   
+#### 20. Python에서 index는 무엇인가요?   
    
 index는 string 또는 정렬된 list에서 위치를 나타내는 정수 데이터형입니다.   
    
@@ -252,7 +290,7 @@ Python에서, string은 문자 리스트입니다. 0 ~ 길이 - 1 까지인 inde
 Program 0 1 2 3 4 5
 ```   
 
-__21. Python에서 Docstring은 무엇인가요?___   
+#### 21. Python에서 Docstring은 무엇인가요?   
    
 docstring은 아래의 나오는 Python constructs에서 첫 서술이 되는 유일한 텍스트입니다.   
    
@@ -260,13 +298,13 @@ Module, Function, Class, or Method definition.
    
 docstring은 string객체의 속성__doc__ 을 추가함으로써 얻을 수 있습니다.   
    
-__22. Python programming에서 함수는 무엇인가요?__   
+#### 22. Python programming에서 함수는 무엇인가요?   
    
 함수는 재사용가능한 개체이며 코드 블럭을 나타내는 객체입니다. 코드 재사용성을 높이고 프로그램에 모듈화를 가져옵니다.   
    
 Python은 print()와 같은 많은 내장 함수를 제공하고 사용자 정의 함수를 생성할 수 있는 능력을 제공합니다.   
 
-__23. Python에서 얼마 만큼의 기본형 함수들이 이용 가능한가요?__   
+#### 23. Python에서 얼마 만큼의 기본형 함수들이 이용 가능한가요?   
    
 Python은 두 가지 기본형 함수를 제공합니다.   
    
@@ -275,7 +313,7 @@ Python은 두 가지 기본형 함수를 제공합니다.
    
 내장 함수는 Python언어의 부분으로 볼수 있습니다. print(), dir(), len() 그리고 abs() 등이 있습니다.   
 
-__24. Python에서 어떻게 함수를 작성하나요?__   
+#### 24. Python에서 어떻게 함수를 작성하나요?   
    
 아래의 방식으로 함수를 만들 수 있습니다.   
 
@@ -288,45 +326,45 @@ def seongbeen(age,nationality):
     nationality = None
 ```   
 
-__25. Python에서 함수 호출 또는 호출가능한 객체는 무엇인가요?__   
+#### 25. Python에서 함수 호출 또는 호출가능한 객체는 무엇인가요?   
    
 Python에서 함수는 호출가능한 객체로 다뤄집니다. 인자들을 허용하고 튜플 형식으로 다수 값 또는 단일 값을 반환합니다. 이외에도, Python은 같은 범주에서 설치하는 클래스 인스턴스 또는 클래스 같은 다른 구성도 가지고 있습니다.   
 
-__26. Python에서 사용되는 단어 return은 무엇인가요?__   
+#### 26. Python에서 사용되는 단어 return은 무엇인가요?   
    
 함수의 목적은 입력을 받고 결과를 반환하는 겁니다.   
    
 return은 호출하는 곳에 값을 다시 보내기 위한 함수에서 사용하는 Python 표현법입니다.   
 
-__27. Python에서 "Call by value"는 무엇인가요?__   
+#### 27. Python에서 "Call by value"는 무엇인가요?   
    
-call-by-valud에서 하나의 표현이나 값인 인자는 함수 안에서 각각의 변수로 만들어집니다.   
+call-by-value에서 하나의 표현이나 값인 인자는 함수 안에서 각각의 변수로 만들어집니다.   
    
 Python은 이러한 변수를 function-level scope내의 지역변수로 간주합니다. 이러한 변수에 대한 어떠한 변화도 함수 외부에 반영되지 않고 함수 내에서만 남아있게 됩니다.   
 
-__28. Python에서 "Call by Reference"는 무엇인가요?__   
+#### 28. Python에서 "Call by Reference"는 무엇인가요?   
    
-“call-by-reference”와 “pass-by-reference”를 교대해서 사용할 수 있습니다. 참조에 의해서 인자를 전달할 경우, 단순 복사보다 함수에 내포된 참조로서 이용할 수 있습니다. 이러한 경우에, 인자에 대한 모든 수정을 호출자가 볼 수 있습니다.   
+“call-by-reference” 또는 “pass-by-reference”라는 용어를 교대해서 사용할 수 있습니다. 참조에 의해서 인자를 전달할 경우, 값을 단순 복사하기 보다는 함수에서 직접적으로 참조해서 이용할 수 있습니다. 이러한 경우에, 인자에 대한 모든 수정이 호출자에게도 보여지게 됩니다. 즉, 함수내에서의 해당 인자에 대한 변경은 원래 인자의 값도 같이 변경이 됩니다.   
    
 이러한 설계는 지역 복사를 해야하는 필요성을 없애기때문에 더 많은 시간, 공간 효율성을 가져오는 장점을 가지고 있습니다.   
    
 반면에, 단점은 함수 호출동안 뜻하지 않게 변수가 수정되어질 수 있다는 것입니다. 그러므로, 프로그래머는 이러한 불안정성을 피하기 위한 코드를 작성해야 할 필요가 있습니다.   
 
-__29. trunc() 함수의 반환 값은 무엇인가요?__   
+#### 29. trunc() 함수의 반환 값은 무엇인가요?   
    
 trunc() 함수는 출력 결과로 정수 값을 제공하고 특정 표현식으로부터의 소수 값을 제거하는 수학적인 동작을 수행합니다.   
 
-__30. Python 함수는 반드시 값을 반환해야 하나요?__   
+#### 30. Python 함수는 반드시 값을 반환해야 하나요?      
    
 함수가 값을 꼭 반환할 필요는 없습니다. 그러나, 반환해야만 한다면, None을 반환 값으로 사용할 수 있습니다.   
 
-__31. Python에서 continue가 하는 일은 무엇인가요?__   
+#### 31. Python에서 continue가 하는 일은 무엇인가요?      
    
 continue는 실행되지 않은 부분에서 모든 명령어들을 유지하면서 loop문 안에서 다음 반복을 수행할 수 있게 통제하는 파이썬의 jump statement입니다.   
    
 continue문은 "while" 과 "for"문에 적용할 수 있습니다.
 
-__32. Python에서 id() 함수의 목적은 무엇인가요?__   
+#### 32. Python에서 id() 함수의 목적은 무엇인가요?      
    
 id()는 Python 내장 함수 중 하나입니다.   
 ```python
@@ -334,7 +372,7 @@ Signature: id(object)
 ```   
 하나의 매개변수를 허용하고 입력 객체와 연관된 유일한 식별자를 반환합니다.   
 
-__33. Python에서 *args는 무슨 일을 하나요?__   
+#### 33. Python에서 *args는 무슨 일을 하나요?      
    
 *args를 함수 헤더에서 매개변수로 사용할 수 있습니다. n개의 인자를 전달할 수 있는 능력입니다.   
    
@@ -358,7 +396,7 @@ Learning
 Python
 ```   
 
-__34. Python에서 **kwargs는 무슨 일을 하나요?__   
+#### 34. Python에서 **kwargs는 무슨 일을 하나요?      
    
 함수 선언에서 **kwargs를 사용할 수 있습니다. 키워드나 이름을 가진 n개의 인자를 전달할 수 있습니다.   
 **kwargs 사용의 예:
@@ -378,7 +416,7 @@ Kalley's age is 22.
 Tom's age is 32.
 ```   
 
-__35. Python은 main()를 가지고 있나요?__   
+#### 35. Python은 main()를 가지고 있나요?      
    
 main()은 대부분의 프로그래밍 언어에서 첫번째로 호출되는 진입점 함수입니다.   
    
@@ -402,13 +440,13 @@ __name__ contains:  __main__
 Testing the main function
 ```   
 
-__36. Python에서 __ name __ 은 무엇을 하나요?__   
+#### 36. Python에서 __ name __ 은 무엇을 하나요?      
    
 __ name __ 은 유일한 변수입니다. Python은 main() 함수를 드러내지 않기 때문에, 인터프리터가 스크립트를 실행할 때 먼저 level 0 indentation에 있는 코드를 실행합니다.   
    
 main()이 호출되는지 보기 위해서, " __ main __ " 과 비교하는 절에서 __ name __ 을 사용합니다.   
 
-__37. Python에서 "end"의 목적은 무엇인가요?__   
+#### 37. Python에서 "end"의 목적은 무엇인가요?      
    
 Python의 print() 함수는 항상 끝에 새 줄을 출력합니다. print() 함수는 'end'로 알려진 옵션 매개변수를 허용합니다. end의 값은 '\n'로 자동적으로 설정되어 있습니다. print문안에 있는 end 문자를 원하는 값으로 변경할 수 있습니다.   
 ```python
@@ -426,19 +464,19 @@ Let's learn Python
 Learn to code from techbeamers.com
 ```   
 
-__38. Python에서 언제 "break"를 사용하나요?__   
+#### 38. Python에서 언제 "break"를 사용하나요?      
    
 Python은 loop로부터 나오기 위한 break문을 제공합니다. 코드에서 break가 될때마다, 즉시 loop로부터 나오게 됩니다.   
    
 중첩 loop문에서 break는 내부 loop문에서 나오게 됩니다.   
 
-__39. Python에서 continue와 pass 사이의 차이점은 무엇인가요?__   
+#### 39. Python에서 continue와 pass 사이의 차이점은 무엇인가요?      
    
 continue문은 loop가 다음 반복을 할 수 있게 합니다.   
    
 반면에, pass문은 아무것도 하지 않고, 평소처럼 나머지 코드가 실행됩니다.   
    
-__40. Python에서 len() 함수는 무엇을 하나요?__   
+#### 40. Python에서 len() 함수는 무엇을 하나요?      
    
 Python에서, len()은 중요한 string 함수입니다. 입력 string의 길이를 보여줍니다.   
 ```python
@@ -447,7 +485,7 @@ Python에서, len()은 중요한 string 함수입니다. 입력 string의 길이
 11
 ```   
 
-__41. Python에서 chr() 함수는 무엇을 하나요?__   
+#### 41. Python에서 chr() 함수는 무엇을 하나요?      
    
 chr()함수는 3.0 버전에서 제거되었다 Python 3.2에서 재추가 되었습니다.   
    
@@ -455,7 +493,7 @@ Unicode code point가 정수인 문자를 나타내는 string을 반환합니다
    
 예를 들어, chr(122)은 string 'z'를 반환하고 chr(1212)는 string ‘Ҽ’를 반환합니다.
 
-__42. Python에서 ord() 함수는 무엇을 하나요?__   
+#### 42. Python에서 ord() 함수는 무엇을 하나요?      
    
 ord(char)은 1 크기의 string을 가지고 Unicode type 객체의 경우 Unicode code 형식 문자를 나타내는 정수를 반환하고 8-bit string type의 경우 byte 값을 반환합니다.   
 ```python
@@ -463,7 +501,7 @@ ord(char)은 1 크기의 string을 가지고 Unicode type 객체의 경우 Unico
 122
 ```   
 
-__43. Python에서 rstrip()은 무엇인가요?__   
+#### 43. Python에서 rstrip()은 무엇인가요?      
    
 Python은 끝에 여백 문자를 제외한 string을 복사하는 rstrip() 함수를 제공합니다.   
    
@@ -481,19 +519,19 @@ print(test_str.rstrip())
 Programming
 ```   
 
-__44. Python에서 여백은 무엇인가요?__   
+#### 44. Python에서 여백은 무엇인가요?      
    
 여백은 간격과 분리를 위해서 사용하는 문자입니다.   
    
 Python에는 tab과 space가 있습니다.   
    
-__45. Python에서 isalpha()는 무엇인가요?__   
+#### 45. Python에서 isalpha()는 무엇인가요?      
    
 내장 함수 isalpha()는 string을 다루는 함수입니다.   
    
 string에 있는 모든 문자가 alphabet type이면 True, 아니면 False를 반환합니다.   
 
-__46. Pyhton에서 split()를 어떻게 사용하나요?__   
+#### 46. Pyhton에서 split()를 어떻게 사용하나요?      
    
 split() 함수는 string에서 큰 조각을 더 작은 덩어리 또는 sub-strings으로 자르기 위한 함수입니다. 분리 기준 문자를 명시하여 쪼개거나 자동적으로 설정된 space를 사용하여 쪼갤 수 있습니다.   
 ```python
@@ -508,11 +546,11 @@ print(str.split())
 ['pdf', 'csv', 'json']
 ```   
 
-__47. Python에서 join 함수는 무엇을 하나요?__   
+#### 47. Python에서 join 함수는 무엇을 하나요?      
    
 join()은 string, list, tuple에서 가능하며 값을 합치고 통합된 값을 반환합니다.   
 
-__48. Python에서 title() 함수는 무엇을 하나요?__   
+#### 48. Python에서 title() 함수는 무엇을 하나요?      
    
 title()은 각 단어에서 첫번째 문자를 대문자로 나머지 문자들을 소문자로 변환하는 함수입니다.   
 ```python
@@ -524,31 +562,31 @@ print(str.title())
 ```python
 Learn Python
 ```   
-__49. CPython의 어느 것이 Python과 다르게 만드나요?__   
+#### 49. CPython의 어느 것이 Python과 다르게 만드나요?      
    
 CPython은 중심부가 C로 개발되었습니다. Python-ish 코드를 C 언어로 번역시키기위해 사용되는 인터프리터 loop를 실행시킵니다.   
 
-__50. 어느 package가 가장 빠른 Python 형태일까요?__   
+#### 50. 어느 package가 가장 빠른 Python 형태일까요?      
    
 PyPy는 성능을 향상시키기 위해 CPython 수행을 이용하면서 최대 호환성을 제공한다.   
    
 PyPy가 CPython보다 거의 5배 빠르다.   
 
-__51. Python언어에서 GIL은 무엇인가요?__   
+#### 51. Python언어에서 GIL은 무엇인가요?      
    
 Python은 동시에 여러 파이썬 코드(bytecode)를 실행할 때에 여러 스레드를 사용할 경우, 다수의 스레드를 동기화하여 단 하나의 thread만이 Python object에 안전한 접근을 하게하는 mutex인 GIL(the global interpreter lock)을 지원합니다.
 
-__52. 어떻게 Python 스레드는 안전한가요?__   
+#### 52. 어떻게 Python 스레드는 안전한가요?      
    
 Python은 스레드에게 안전한 접근을 보장합니다. 동기화를 하기 위해 GIL mutex를 사용합니다. 스레드가 언제든지 GIL lock을 잃을 수 있다면, 반드시 thread-safe한 코드를 작성해야 합니다.   
 
-__53. Python 어떻게 메모리를 관리하나요?__   
+#### 53. Python 어떻게 메모리를 관리하나요?      
    
 Python은 내부적으로 각 모든 객체와 데이터 구조를 가지는 heap manager를 이용합니다.   
    
 이러한 heap manager는 객체에 대한 heap 공간의 할당과 해제를 담당합니다.   
 
-__54. Python에서 tuple은 무엇인가요?__   
+#### 54. Python에서 tuple은 무엇인가요?      
    
 tuple은 immutable한 모음 데이터형입니다.   
    
@@ -556,29 +594,29 @@ list의 연속성과 비슷한 점을 가지고 있습니다. 그러나 tuple과
    
 또한, tuple은 소괄호()로 둘러싸지만 list는 대괄호[]로 둘러쌉니다.   
 
-__55. dictionary는 무엇인가요?__   
+#### 55. dictionary는 무엇인가요?      
    
 dictionary는 객체들의 모음을 저장한 Python에서 연관배열로 알려진 자료구조입니다.   
    
 모음은 하나의 연관된 값을 가진 키들의 집합입니다. 이것을 hash, map, 또는 hashmap이라 부를 수 있습니다.   
    
-__56. Python에서 set 객체를 무엇인가요?__   
+#### 56. Python에서 set 객체를 무엇인가요?      
    
 set은 비정렬된 모음 객체입니다. 유일하고 immutable한 객체를 저장합니다.   
 
-__57. Python에서 어떻게 dictionary를 사용하나요?__   
+#### 57. Python에서 어떻게 dictionary를 사용하나요?      
    
 dictionary는 다른 객체(values)들의 그룹에 대응하는 객체(keys)들의 그룹을 가지고 있습니다. dictionary는 유일한 keys와 values가 대응된 것을 나타냅니다.   
    
 mutable하지만 보통 변경하지 않습니다. keys와 연관된 values는 어떠한 Python 자료형도 될 수 있습니다.   
 
-__58. Python list는 linked list인가요?__   
+#### 58. Python list는 linked list인가요?      
    
 Python list는 C-style linked list와 다르게 길이가 변경 가능한 배열입니다.   
    
 내부적으로, 다른 객체를 참조하기 위한 인접배열을 가지고 있으며 list head 구조에서 배열 값과 길이를 가르키는 포인터를 가지고 있습니다.   
    
-__59. Python에서 class는 무엇인가요?__   
+#### 59. Python에서 class는 무엇인가요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2396) 추가 설명__ - 클래스는 객체를 표현하기 위한 문법입니다. 클래스는 class에 클래스 이름을 지정하고 :(콜론)을 붙인 뒤 다음 줄부터 def로 메서드를 작성합니다. 메서드는 클래스 안에 들어있는 함수를 뜻합니다.   
 ```python
@@ -598,7 +636,7 @@ Python class는 객체들을 생성하기 위한 설계도입니다. 멤버변�
    
 키워드 "class"를 사용하여 만들 수 있습니다. 객체는 생성자로부터 만들어집니다. 이러한 객체는 클래스의 instance를 의미합니다.   
    
-__60. Python class에서 Attributes과 Methods는 무엇인가요?__   
+#### 60. Python class에서 Attributes과 Methods는 무엇인가요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2396) 추가 설명__ - 클래스에 인스턴스 속성을 만들 때는 __init__ 메서드 안에서 self.속성에 값을 할당해줍니다. 그리고 인스턴스 속성에 접근할 때는 메서드 안에서 self 뒤에 .(점)을 붙여서 접근하거나, 인스턴스 뒤에 .을 붙여서 접근합니다.   
 ```python
@@ -687,7 +725,7 @@ programmer
 >>> print(man.profession)
 Manager
 ```   
-__61. class attributes의 값들이 런타임에 어떻게 할당되나요?__   
+#### 61. class attributes의 값들이 런타임에 어떻게 할당되나요?      
    
 런타임에 속성들에 대한 값들을 지정할 수 있습니다. init method를 추가하고 input을 객체 생성자에게 전달해야합니다. 이것을 설명하는 예를 봅시다.   
 ```python
@@ -702,7 +740,7 @@ __61. class attributes의 값들이 런타임에 어떻게 할당되나요?__
 Manager
 ```   
 
-__62. Inhertance는 무엇인가요?__   
+#### 62. Inhertance는 무엇인가요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2396) 추가 설명__ - 클래스 상속은 물려받은 기능을 유지한채로 다른 기능을 추가할 때 사용합니다. 기능을 물려주는 클래스를 기반 클래스, 상속을 받아 새롭게 만드는 클래스를 파생 클래스라고 합니다.   
    
@@ -769,7 +807,7 @@ Xeon Mac OS High Sierra 32 GB
 Xeon Windows 10 Pro 64 16 GB
 ```   
 
-__63. composition은 무엇인가요?__   
+#### 63. composition은 무엇인가요?      
    
 composition은 상속의 종류입니다. base class로부터 약간 다르게 상속됩니다. 예를 들어, derived class의 멤버로서 동작하는 base class의 instance 변수를 사용함으로써 상속이 됩니다.   
    
@@ -805,13 +843,13 @@ if __name__ == "__main__":
 Tablet with i7 CPU & 16 GB ram by Intel
 ```   
 
-__64. error와 exception은 무엇인가요?__   
+#### 64. error와 exception은 무엇인가요?      
    
 error는 비정상적 종료를 야기하는 코딩 이슈입니다.   
    
 반면에, exception은 프로그램의 일반적인 흐름을 중단하는 외부 이벤트의 발생으로 인해 생깁니다.   
    
-__65. try/except/finally를 가지고 어떻게 exception을 처리하나요?__   
+#### 65. try/except/finally를 가지고 어떻게 exception을 처리하나요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 예외란 코드 실행 중에 발생한 에러를 뜻합니다. 예외 처리를 하려면 try에 실행할 코드를 넣고 except에 예외가 발생했을 때 처리할 코드를 넣어줍니다. 그리고 else는 예외가 발생하지 않았을 때 코드를 실행하며 finally는 예외 발생 여부와 상관없이 항상 코드를 실행합니다.   
 ```python
@@ -856,7 +894,7 @@ Entering in the except block
 Reached to the final block
 ```   
 
-__66. 어떻게 미리 정의된 조건에 대한 exception을 발생시킬까요?__   
+#### 66. 어떻게 미리 정의된 조건에 대한 exception을 발생시킬까요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 예외를 발생시킬 때는 raise에 Exception을 지정하고 에러 메시지를 넣습니다.   
 ```python
@@ -916,7 +954,7 @@ Value entered is : 1
 Enter an odd number-
 ```   
 
-__67. iterators는 무엇인가요?__   
+#### 67. iterators는 무엇인가요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 클래스에서 __iter__, __next__ 메서드를 구현하면 이터레이터가 됩니다. 또한, 이렇게 만든 이터레이터는 반복 가능한 객체이면서 이터레이터입니다. 이터레이터(제너레이터)는 변수 여러 개에 값을 저장하는 언패킹이 가능합니다.   
 ```python
@@ -948,7 +986,7 @@ class 이터레이터이름:
    
 Python library는 iterator의 번호를 가지고 있습니다. 예를 들어, list는 iterator이고 loop문을 통해 사용할 수 있습니다.   
 
-__68. iterable과 iterator사이에 차이점은 무엇인가요?__   
+#### 68. iterable과 iterator사이에 차이점은 무엇인가요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 반복 가능한 객체는 문자열, 리스트, 튜플, range, 딕셔너리, 세트 등이 있습니다. 반복 가능한 객체에서 __iter__ 메서드 또는 iter 함수를 호출하면 이터레이터가 나옵니다. 이터레이터에서 __next__ 메서드 또는 next 함수를 호출하면 반복 가능한 객체의 요소를 차례대로 꺼낼 수 있습니다. 반복 가능한 객체는 요소를 한 번에 하나씩 꺼낼 수 있는 객체이고, 이터레이터는 __next__ 메서드를 사용해서 차례대로 값을 꺼낼 수 있는 객체입니다.      
 ```python
@@ -961,7 +999,7 @@ next(이터레이터)                          # next 함수 사용
 
 본문 - set, list, tuple, dictionary, list 같은 모음 자료형은 모두 iterable한 객체이기도 하지만 iterator를 반환하는 iterable한 container입니다.   
    
-__69. generator는 무엇인가요?__   
+#### 69. generator는 무엇인가요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2425) 추가 설명__ - 제너레이터는 이터레이터를 생성해주는 함수이며 함수 안에서 yield 키워드만 사용하면 됩니다. 제너레이터 함수를 호출하면 제너레이터 객체가 반환되고, 제너레이터 객체에서 __next__ 메서드 또는 next 함수를 호출하면 yield까지 실행한 뒤 yield에 지정한 값이 반환값으로 나옵니다.   
 ```python
@@ -1008,7 +1046,7 @@ print(next(generate()))
 Python Generator function.
 ```   
 
-__70. closures은 무엇인가요?__   
+#### 70. closures은 무엇인가요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2370) 추가 설명__ - 클로저는 함수를 둘러싼 환경(지역 변수, 코드 등)을 계속 유지하다가 함수를 호출할 때 다시 꺼내서 사용하는 함수를 뜻합니다. 따라서 클로저는 지역 변수와 코드를 묶어서 사용하고 싶을 때 활용합니다. 또한, 클로저에 속한 지역 변수는 바깥에서 직접 접근할 수 없으므로 데이터를 숨기고 싶을 때 활용합니다.   
 ```python
@@ -1054,7 +1092,7 @@ print(num_6(1))
 6
 ```   
 
-__71. Decorator는 무엇인가요?__   
+#### 71. Decorator는 무엇인가요?      
    
 __[코딩 도장](https://dojang.io/mod/page/view.php?id=2454) 추가 설명__ - 데코레이터는 함수를 수정하지 않은 상태에서 추가 기능을 구현할 때 사용합니다.   
 데코레이터는 함수를 수정하지 않은 상태에서 추가 기능을 구현할 때 사용합니다. 먼저 데코레이터는 호출할 함수를 매개변수로 받고, 호출할 함수를 감싸는 함수 wrapper를 만듭니다. 그리고 wrapper 함수 안에서는 매개변수로 받은 func를 호출하고, 함수 바깥에서는 return을 사용하여 wrapper 함수 자체를 반환합니다. 데코레이터를 사용할 때는 호출할 함수 위에 @데코레이터를 형식으로 지정해줍니다.   
@@ -1157,7 +1195,7 @@ After the function call
 9
 ```   
 
-__72. 어떻게 dictionary를 만드나요?__   
+#### 72. 어떻게 dictionary를 만드나요?      
    
 사이트 통계치 만들기로 예를 들어봅시다. 통계치를 위해 ":"을 사용하여 key-value 쌍을 분리해야 합니다. key들은 immutable 타입이여야만 합니다. 예를 들어, 런타임에 변화가 안되는 데이터 형을 사용할 겁니다. int, string 또는 tuple을 선택할 겁니다.   
    
@@ -1170,7 +1208,7 @@ __72. 어떻게 dictionary를 만드나요?__
 {'type': 'organic', 'site': 'tecbeamers.com', 'traffic': 10000}
 ```   
 
-__73. dictionary로부터 값을 어떻게 가져오나요?__   
+#### 73. dictionary로부터 값을 어떻게 가져오나요?      
    
 dictionary로부터 키를 사용하여 데이터에 직접적으로 접근할 수 있습니다. 대괄호 [...]를 사용하여 key를 에워쌓으면 dictionary에 대응되는 변수 값을 가져올 수 있습니다.   
 ```python
@@ -1186,7 +1224,7 @@ dictionary로부터 값을 가져오기 위해서 또는 defalut 값을 설정�
 tecbeamers.com
 ```   
 
-__74. dictionary 객체를 통해서 순회할 수 있나요?__   
+#### 74. dictionary 객체를 통해서 순회할 수 있나요?      
    
 "for"과 "in"을 사용하여 dictionary 객체를 순회할 수 있습니다.   
 
@@ -1210,7 +1248,7 @@ The value is: 10000
 ++++++++++++++++++++++++
 ```   
 
-__75. dictionary에 요소를 어떻게 추가하나요?__   
+#### 75. dictionary에 요소를 어떻게 추가하나요?      
    
 새로운 key에 대응하는 value를 설정하여 dictionary를 수정함으로써 요소를 추가할 수 있습니다. 기존 key 값에 대해 value를 설정할 경우 해당 key에 대응되는 value가 수정됩니다.   
 ```python
@@ -1235,7 +1273,7 @@ update() 함수의 도움으로 두 dictionary를 합쳐 더 큰 dictionary를 �
 {'type': 'social media', 'site': 'google.co.in', 'traffic': 1000000}
 ```   
 
-__76. dictionary의 요소를 삭제하는 방법은 무엇인가요?__   
+#### 76. dictionary의 요소를 삭제하는 방법은 무엇인가요?      
    
 del() 함수와 key를 사용함으로써 key와 대응되는 value를 함께 삭제할 수 있습니다.   
    
@@ -1256,7 +1294,7 @@ organic
 {'site': 'tecbeamers.com', 'traffic': 10000}
 ```   
 
-__77. key의 존재유무를 어떻게 확인하나요?__   
+#### 77. key의 존재유무를 어떻게 확인하나요?      
    
 "in" 연산자를 사용하여 dictionary 객체 내부의 key의 존재유무를 확인할 수 있습니다.   
 
@@ -1270,7 +1308,7 @@ True
 True
 ```   
 
-__78. List comprehension을 위한 구문은 무엇인가요?__   
+#### 78. List comprehension을 위한 구문은 무엇인가요?      
    
 리스트 표현식을 위한 구문은 다음과 같습니다.   
 ```python
@@ -1284,7 +1322,7 @@ __78. List comprehension을 위한 구문은 무엇인가요?__
 >>> print(alist)
 ```   
 
-__79. dictionary comprehension을 위한 구문은 무엇인가요?__   
+#### 79. dictionary comprehension을 위한 구문은 무엇인가요?      
    
 dictionary는 리스트 표현식과 같은 구문을 가지지만 중괄호를 사용합니다.   
 
@@ -1300,7 +1338,7 @@ dictionary는 리스트 표현식과 같은 구문을 가지지만 중괄호를 
 >>> print(adict)
 ```   
 
-80. generator expression을 위한 구문은 무엇인가요?__   
+80. generator expression을 위한 구문은 무엇인가요?      
    
 generator 표현식은 리스트 표현식과 같지만 소괄호를 사용합니다.   
 
@@ -1316,7 +1354,7 @@ generator 표현식은 리스트 표현식과 같지만 소괄호를 사용합�
 >>> list((var for var in range(10, 20)))
 ```   
 
-__81. conditional expression은 어떻게 작성하나요?__   
+#### 81. conditional expression은 어떻게 작성하나요?      
    
 조건 표현법으로 아래의 한줄을 사용할 수 있습니다. \[조건문이 True일 경우 표현\] if \[조건\] else \[조건문이 False일 경우 표현\]   
 
@@ -1327,7 +1365,7 @@ __81. conditional expression은 어떻게 작성하나요?__
 Yes
 ```   
 
-__82. enumerate에 대해서 무엇을 알고 있나요?__   
+#### 82. enumerate에 대해서 무엇을 알고 있나요?      
    
 iterator를 사용하면서 반복된 수를 저장하여 사용할 상황이 생길 수 있습니다. enumerate()로 알려진 내장함수를 사용하여 이러한 작업을 쉽게 할 수 있습니다.   
    
@@ -1367,7 +1405,7 @@ str_obj type: <class 'enumerate'>
 [(2, 'b'), (3, 'a'), (4, 'n'), (5, 'a'), (6, 'n'), (7, 'a')]
 ```   
 
-__83. globals() 함수는 무엇인가요?__   
+#### 83. globals() 함수는 무엇인가요?      
    
 globals() 함수는 dictionary 객체로 현재 global symbol table을 반환합니다.   
    
@@ -1399,7 +1437,7 @@ Yes
 12
 ```   
 
-__84. zip() 함수는 왜 사용하나요?__   
+#### 84. zip() 함수는 왜 사용하나요?      
    
 zip 함수는 다양한 contaioner들의 일치하는 인덱스를 map하여 single unit으로 사용할 수 있게 해줍니다.   
 ```python
@@ -1432,7 +1470,7 @@ print (out)
 The output of zip() is : {('jerry', 33, 'R&D'), ('jake', 44, 'IT'), ('john', 28, 'Accounts'), ('tom', 32, 'HR')}
 ```   
 
-__85. class 또는 static 변수는 무엇인가요?__   
+#### 85. class 또는 static 변수는 무엇인가요?      
    
 Python에서 모든 객체는 공통의 class 또는 static 변수를 공유합니다.   
    
@@ -1469,7 +1507,7 @@ programming
 programming
 ```   
 
-__86. ternart operator는 어떻게 동작하나요?__   
+#### 86. ternart operator는 어떻게 동작하나요?      
    
 삼항 조건 연산자는 조건문의 다른 방안이다. 테스트할 필요가 있는 구문을 true 또는 false 값과 결합한다.   
    
@@ -1482,13 +1520,13 @@ smaller = x if x < y else y
 print(smaller)
 ```   
 
-__87. "self" 키워드는 무엇을 하나요?__   
+#### 87. "self" 키워드는 무엇을 하나요?      
    
 self는 현재 객체의 instance를 담고있는 변수를 나타내는 Python 키워드입니다.   
    
 거의 모든 객체 지향언어에서, 숨겨진 파라미터로 함수에 전달됩니다.   
    
-__88. 객체를 복사하기위한 다른 방법이 무엇이 있나요?__   
+#### 88. 객체를 복사하기위한 다른 방법이 무엇이 있나요?      
    
 객체를 복사하기 위한 2가지 방법이 있습니다.   
 - copy.copy() 함수   
@@ -1498,19 +1536,19 @@ __88. 객체를 복사하기위한 다른 방법이 무엇이 있나요?__
   - 원본으로부터 목적지로 객체의 복사를 합니다.   
   - 함수에 전달할 수 있는 파라미터의 깊은 복사를 반환합니다.   
      
-__89. docsting의 목적은 무엇인가요?__   
+#### 89. docsting의 목적은 무엇인가요?      
    
 docstring은 Python 함수, 모듈, 클래스에 대한 정보를 기록을 하는 과정입니다.   
    
-__90. 어느 함수가 number를 string으로 변화시킬 수 있을까요?__   
+#### 90. 어느 함수가 number를 string으로 변화시킬 수 있을까요?      
    
 숫자를 문자열로 바꾸기 위해서, 내장 함수 str()를 사용할 수 있습니다. 8진수 또는 16진수로 표현하고 싶다면, 내장 함수 oct() 또는 hex() 사용하면 됩니다.   
    
-__91. 프로그램을 어떻게 디버그하나요? Python 코드를 단계별로 진행하는 것이 가능한가요?__   
+#### 91. 프로그램을 어떻게 디버그하나요? Python 코드를 단계별로 진행하는 것이 가능한가요?      
    
 Python debugger (pdb)를 사용하여 프로그램을 디버그 할 수 있습니다. pdb를 사용하여 프로그램을 시작하면, 코드 한 줄씩 진행할 수 있습니다.   
    
-__92. pdb 명령어들을 적어주세요.__   
+#### 92. pdb 명령어들을 적어주세요.__   
    
 - breakpoint 추가하기 (b)reak   
 - 다음 breakpoint까지 연속적으로 코드 수행 (c)ontinue   
@@ -1520,14 +1558,14 @@ __+ next와 step의 차이점은 step은 호출된 함수 안에서 멈추고, n
 - 소스 코드를 나열 (l)ist   
 - 표현식 출력 (p)expression   
    
-__93. debug를 위한 명령어는 무엇인가요?__   
+#### 93. debug를 위한 명령어는 무엇인가요?      
    
 아래의 명령어는 디버그 모드에서 프로그램을 실행하게 도와줍니다.   
 ```python
 $ python -m pdb python-script.py
 ```   
    
-__94. 코드의 흐름을 어떻게 모니터할 수 있나요?__   
+#### 94. 코드의 흐름을 어떻게 모니터할 수 있나요?      
    
 프로그램내의 함수를 모니터하고 추적 설정을 위해 sys 모듈의 settrace()함수를 사용할 수 있습니다.   
    
@@ -1554,7 +1592,7 @@ sys.settrace(trace_calls)
 demo1()
 ```   
    
-__95. generator는 언제 그리고 왜 사용하나요?__   
+#### 95. generator는 언제 그리고 왜 사용하나요?      
    
 generator는 반복가능한 객체를 반환하는 함수입니다. yield 키워드를 사용하여 generator 객체를 반복할 수 있습니다. 하지만 메모리에서 값들을 유지하지 않기 때문에 오직 한번만 할 수 있습니다. 값을 필요할 때 얻을 수 있습니다.   
    
@@ -1564,7 +1602,7 @@ generator는 계속하기를 원하는 단계나 함수의 실행을 유지할 �
 - generator는 잠시 붙잡아두기를 바라거나 모든 결과를 원하지 않을 때 유용합니다.   
 - callback 함수 대신 generator를 사용할 수 있습니다. callback과 같은 기능을 하는 함수 내부에 loop를 작성하여 generator로 만들 수 있습니다.   
    
-__96. yield 키워드는 무엇을 하나요?__   
+#### 96. yield 키워드는 무엇을 하나요?      
    
 yield 키워드는 함수를 generator로 만들 수 있습니다. 표준 return 키워드 같이 작동하지만 항상 generator 객체를 반환합니다. 또한 함수가 다수의 yield 키워드를 가질 수 있습니다.
    
@@ -1581,7 +1619,7 @@ print next(day), next(day)
 #output: sun mon
 ```   
    
-__97. list를 다른 데이터로 어떻게 변환하나요?__   
+#### 97. list를 다른 데이터로 어떻게 변환하나요?      
    
 __list를 string으로 변환__   
    
@@ -1642,7 +1680,7 @@ print(listAsDict)
 #output: {'sun': 'mon', 'thu': 'fri', 'tue': 'wed'}
 ```   
    
-__98. 어떤 방법으로 리스트의 각 아이템이 몇 번 발견되는 지 셀 수 있을까요?__   
+#### 98. 어떤 방법으로 리스트의 각 아이템이 몇 번 발견되는 지 셀 수 있을까요?      
    
 set과 달리, list는 중복 값을 가지는 아이템을 가질 수 있습니다.   
    
@@ -1667,7 +1705,7 @@ print([[x,weekdays.count(x)] for x in set(weekdays)])
 #output: [['wed', 1], ['sun', 2], ['thu', 1], ['tue', 1], ['mon', 3], ['fri', 1]]
 ```   
 
-__99. numpy가 무엇이며 어떠한 이유로 list보다 더 나은가요?__   
+#### 99. numpy가 무엇이며 어떠한 이유로 list보다 더 나은가요?      
    
 numpy는 거대한 데이터 사이즈를 다룰 수 있는 scientific computing을 위한 Python 패키지입니다. 고수준 기능의 set과 강력한 n차원 배열 객체를 포함합니다.   
    
@@ -1677,7 +1715,7 @@ numpy는 거대한 데이터 사이즈를 다룰 수 있는 scientific computing
 - numpy 사용하는 것이 표준 list보다 더 편리합니다.   
 - numpy 배열은 list의 기능을 증대시키는 것과 같이 더 효율적입니다.   
    
-__100. 빈 numpy 배열을 생성하는 방법들이 무엇이 있을까요?__   
+#### 100. 빈 numpy 배열을 생성하는 방법들이 무엇이 있을까요?      
    
 2가지 방법이 있습니다.   
    
