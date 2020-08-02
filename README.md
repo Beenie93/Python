@@ -37,28 +37,76 @@ __중요하다고 생각되는 부분은 옆에 :star: 표시 해놓았습니다
 28. [Call-by-reference란?](#28-python에서-call-by-reference는-무엇인가요) :star:   
 29. [trunc()의 반환 값은?](#29-trunc-함수의-반환-값은-무엇인가요)   
 30. [함수는 반드시 값을 반환해야 하나요?](#30-python-함수는-반드시-값을-반환해야-하나요)     
-31. [](#31-)   
-32. [](#32-)   
-33. [](#33-)   
-34. [](#34-)   
-35. [](#35-)   
-36. [](#36-)   
-37. [](#37-)   
-38. [](#38-)   
-39. [](#39-)   
-40. [](#40-)   
-41. [](#4)   
-50. [](#50-)   
-51. [](#5)  
-60. [](#60-)   
-61. [](#6)   
-70. [](#70-)    
-71. [](#7)   
-80. [](#80-)   
-81. [](#8)   
-90. [](#90-)   
-91. [](#9)   
-100. [](#100)   
+31. [continue란?](#31-python에서-continue가-하는-일은-무엇인가요)   
+32. [id()란?](#32-python에서-id-함수의-목적은-무엇인가요)   
+33. [*args란?](#33-python에서-args는-무슨-일을-하나요) :star:      
+34. [**kwargs란?](#34-python에서-kwargs는-무슨-일을-하나요) :star:   
+35. [Python은 main()를 가지고 있나요?](#35-python은-main를-가지고-있나요)   
+36. [__ name __란?](#36-python에서-__-name-__-은-무엇을-하나요) :star:   
+37. [end의 목적은?](#37-python에서-end의-목적은-무엇인가요)   
+38. [break를 언제 사용하나요?](#38-python에서-언제-break를-사용하나요)   
+39. [coninue와 pass의 차이점은?](#39-python에서-continue와-pass-사이의-차이점은-무엇인가요)   
+40. [len()란?](#40-python에서-len-함수는-무엇을-하나요)   
+41. [chr()란?](#41-python에서-chr-함수는-무엇을-하나요)   
+42. [ord()란?](#42-python에서-ord-함수는-무엇을-하나요)   
+43. [rstrip()란?](#43-python에서-rstrip은-무엇인가요)   
+44. [여백이란?](#44-python에서-여백은-무엇인가요)   
+45. [isalpha()란?](#45-python에서-isalpha는-무엇인가요)   
+46. [split()란?](#46-pyhton에서-split를-어떻게-사용하나요)   
+47. [join()란?](#47-python에서-join-함수는-무엇을-하나요)   
+48. [title()란?](#48-python에서-title-함수는-무엇을-하나요)   
+49. [CPython과 Python의 차이점은?](#49-cpython의-어느-것이-python과-다르게-만드나요) :star: (보충 필요)   
+50. [어느 파이썬 형식이 가장 빠른가요?](#50-어느-package가-가장-빠른-python-형식일까요) :star: (보충 필요)     
+51. [GIL이란?](#51-python언어에서-gil은-무엇인가요) :star: (보충 필요)    
+52. [Python 스레드가 안전한 이유는?](#52-어떻게-python-스레드는-안전한가요) :star: (보충 필요)
+53. [메모리를 어떻게 관리하나요?](#53-python-어떻게-메모리를-관리하나요) :star: (보충 필요)    
+54. [tuple이란?](#54-python에서-tuple은-무엇인가요)   
+55. [dictionary란?](#55-dictionary는-무엇인가요)   
+56. [set이란?](#56-python에서-set-객체를-무엇인가요)   
+57. [dictionary의 용도는?](#57-python에서-dictionary의-용도는-무엇인가요)   
+58. [list는 linked list인가요?](#58-python-list는-linked-list인가요) :star: (보충 필요)  
+59. [class란?](#59-python에서-class는-무엇인가요) :star:   
+60. [class에서 attribute와 method란?](#60-python-class에서-attributes과-methods는-무엇인가요) :star:     
+61. [런타임 시간에 class attribute에 값을 할당하는 방법은?](#61-런타임-시간에-class-attribute에-값을-할당하는-방법은)   
+62. [Inheratance(상속)이란?](#62-inhertance는-무엇인가요) :star:     
+63. [Composition이란?](#63-composition은-무엇인가요) :star:    
+64. [error와 exception이란?](#64-error와-exception은-무엇인가요) :star:    
+65. [try/except/finally로 예외처리하는 방법은?](#65-tryexceptfinally를-가지고-어떻게-exception을-처리하나요)   
+66. [미리 정의된 조건에 대한 예외를 일으키는 방법은?](#66-어떻게-미리-정의된-조건에-대한-exception을-발생시킬까요) :star:   
+67. [iterator란?](#67-iterators는-무엇인가요) :star:     
+68. [iterable과 iterator의 차이점은?](#68-iterable과-iterator사이에-차이점은-무엇인가요) :star:    
+69. [generator란?](#69-generator는-무엇인가요) :star:     
+70. [closure란?](#70-closures은-무엇인가요) :star:    
+71. [decorator란?](#71-decorator는-무엇인가요) :star:   
+72. [dictionary 생성 방법은?](#72-어떻게-dictionary를-만드나요)   
+73. [dictionary로부터 값을 불러오는 방법은?](#73-dictionary로부터-값을-어떻게-가져오나요)   
+74. [dictionary 순회 방법은?](#74-dictionary-객체는-순회할-수-있나요)   
+75. [dictionary에 요소를 추가하는 방법은?](#75-dictionary에-요소를-어떻게-추가하나요)   
+76. [dictionary에 요소를 제거하는 방법은?](#76-dictionary의-요소를-삭제하는-방법은-무엇인가요)   
+77. [dictionary에서 key의 존재 유무를 확인하는 방법은?](#77-key의-존재유무를-어떻게-확인하나요)   
+78. [List-comprehension은 어떻게 작성하나요?](#78-list-comprehension을-위한-구문은-무엇인가요) :star:    
+79. [Dictionary-comprehension은 어떻게 작성하나요?](#79-dictionary-comprehension을-위한-구문은-무엇인가요) :star:    
+80. [generator-expression은 어떻게 작성하나요?](#80-generator-expression을-위한-구문은-무엇인가요) :star:      
+81. [conditional-expression은 어떻게 작성하나요?](#81-conditional-expression은-어떻게-작성하나요)   
+82. [enumerate란?](#82-enumerate에-대해서-무엇을-알고-있나요) :star:    
+83. [globals()란?](#83-globals-함수는-무엇인가요)   
+84. [zip()을 사용하는 이유는?](#84-zip-함수는-왜-사용하나요)   
+85. [class 변수, static 변수란?](#85-class-또는-static-변수는-무엇인가요) :star:   
+86. [삼항 조건 연산자란?](#86-ternary-operator는-어떻게-동작하나요)   
+87. [self의 의미는?](#87-self-키워드는-무엇을-하나요)   
+88. [객체를 복사하기 위한 방법은?](#88-객체를-복사하기위한-다른-방법이-무엇이-있나요) :star:   
+89. [docstring을 사용하는 이유는?](#89-docsting의-목적은-무엇인가요)   
+90. [숫자를 string으로 바꾸는 함수는?](#90-어느-함수가-number를-string으로-변화시킬-수-있을까요)   
+91. [어떻게 디버그를 하고, 코드를 단계별로 진행하는 것이 가능한가요?](#91-프로그램을-어떻게-디버그하나요-python-코드를-단계별로-진행하는-것이-가능한가요)   
+92. [어떤 PDB 명령어가 있나요?](#92-pdb-명령어들을-적어주세요)   
+93. [디버그를 위한 명령어는?](#93-debug를-위한-명령어는-무엇인가요)   
+94. [파이썬 내에서 코드의 흐름을 모니터 하는 방법은?](#94-코드의-흐름을-어떻게-모니터할-수-있나요)   
+95. [언제, 왜 generator를 사용하나요?](#95-generator는-언제-그리고-왜-사용하나요) :star:      
+96. [yield란?](#96-yield-키워드는-무엇을-하나요) :star:    
+97. [list를 다른 데이터로 변환하는 방법은?](#97-list를-다른-데이터로-어떻게-변환하나요)   
+98. [list의 각 요소를 카운트 하는 방법은?](#98-어떤-방법으로-리스트의-각-아이템이-몇-번-발견되는-지-셀-수-있을까요)   
+99. [numpy란?](#99-numpy가-무엇이며-어떠한-이유로-list보다-더-나은가요) :star:     
+100. [빈 numpy를 생성하는 방법은?](#100-빈-numpy-배열을-생성하는-방법들이-무엇이-있을까요)   
 
 
 
@@ -549,7 +597,7 @@ print(str.split())
 
 #### 47. Python에서 join 함수는 무엇을 하나요?      
    
-join()은 string, list, tuple에서 가능하며 값을 합치고 통합된 값을 반환합니다.   
+join()은 string, list, tuple에서 가능하며 값을 결합하고 결합한 값을 반환합니다.   
 
 #### 48. Python에서 title() 함수는 무엇을 하나요?      
    
@@ -567,7 +615,7 @@ Learn Python
    
 CPython은 중심부가 C로 개발되었습니다. Python-ish 코드를 C 언어로 번역시키기위해 사용되는 인터프리터 loop를 실행시킵니다.   
 
-#### 50. 어느 package가 가장 빠른 Python 형태일까요?      
+#### 50. 어느 package가 가장 빠른 Python 형식일까요?      
    
 PyPy는 성능을 향상시키기 위해 CPython 수행을 이용하면서 최대 호환성을 제공한다.   
    
@@ -605,7 +653,7 @@ dictionary는 객체들의 모음을 저장한 Python에서 연관배열로 알�
    
 set은 비정렬된 모음 객체입니다. 유일하고 immutable한 객체를 저장합니다.   
 
-#### 57. Python에서 어떻게 dictionary를 사용하나요?      
+#### 57. Python에서 dictionary의 용도는 무엇인가요?      
    
 dictionary는 다른 객체(values)들의 그룹에 대응하는 객체(keys)들의 그룹을 가지고 있습니다. dictionary는 유일한 keys와 values가 대응된 것을 나타냅니다.   
    
@@ -726,7 +774,7 @@ programmer
 >>> print(man.profession)
 Manager
 ```   
-#### 61. class attributes의 값들이 런타임에 어떻게 할당되나요?      
+#### 61. 런타임 시간에 class attribute에 값을 할당하는 방법은?      
    
 런타임에 속성들에 대한 값들을 지정할 수 있습니다. init method를 추가하고 input을 객체 생성자에게 전달해야합니다. 이것을 설명하는 예를 봅시다.   
 ```python
@@ -1225,7 +1273,7 @@ dictionary로부터 값을 가져오기 위해서 또는 defalut 값을 설정�
 tecbeamers.com
 ```   
 
-#### 74. dictionary 객체를 통해서 순회할 수 있나요?      
+#### 74. dictionary 객체는 순회할 수 있나요?      
    
 "for"과 "in"을 사용하여 dictionary 객체를 순회할 수 있습니다.   
 
@@ -1339,7 +1387,7 @@ dictionary는 리스트 표현식과 같은 구문을 가지지만 중괄호를 
 >>> print(adict)
 ```   
 
-80. generator expression을 위한 구문은 무엇인가요?      
+#### 80. generator expression을 위한 구문은 무엇인가요?      
    
 generator 표현식은 리스트 표현식과 같지만 소괄호를 사용합니다.   
 
@@ -1368,7 +1416,7 @@ Yes
 
 #### 82. enumerate에 대해서 무엇을 알고 있나요?      
    
-iterator를 사용하면서 반복된 수를 저장하여 사용할 상황이 생길 수 있습니다. enumerate()로 알려진 내장함수를 사용하여 이러한 작업을 쉽게 할 수 있습니다.   
+iterator를 사용하면서 반복되면서 카운트되는 수를 저장하여 사용할 상황이 생길 수 있습니다. enumerate()로 알려진 내장함수를 사용하여 이러한 작업을 쉽게 할 수 있습니다.   
    
 enumerate() 함수는 iterable에 카운터 변수를 붙이고 "enumerated" 객체로 반환합니다.   
    
@@ -1416,7 +1464,6 @@ Python은 프로그램에 관한 모든 필수적인 정보를 symbol table에 �
 Signature: globals()
 
 Arguments: None
-Yes
 ```   
 ```python
 # Example: globals() function 
@@ -1431,7 +1478,6 @@ def fn():
 # Test Code     
 ret = fn() 
 print(ret)
-Yes
 ```   
 출력 결과:   
 ```python
@@ -1440,7 +1486,7 @@ Yes
 
 #### 84. zip() 함수는 왜 사용하나요?      
    
-zip 함수는 다양한 contaioner들의 일치하는 인덱스를 map하여 single unit으로 사용할 수 있게 해줍니다.   
+zip 함수는 다양한 container들의 일치하는 인덱스를 map하여 single unit으로 사용할 수 있게 해줍니다.   
 ```python
 Signature: 
  zip(*iterators)
@@ -1508,7 +1554,7 @@ programming
 programming
 ```   
 
-#### 86. ternart operator는 어떻게 동작하나요?      
+#### 86. ternary operator는 어떻게 동작하나요?      
    
 삼항 조건 연산자는 조건문의 다른 방안이다. 테스트할 필요가 있는 구문을 true 또는 false 값과 결합한다.   
    
@@ -1549,7 +1595,7 @@ docstring은 Python 함수, 모듈, 클래스에 대한 정보를 기록을 하�
    
 Python debugger (pdb)를 사용하여 프로그램을 디버그 할 수 있습니다. pdb를 사용하여 프로그램을 시작하면, 코드 한 줄씩 진행할 수 있습니다.   
    
-#### 92. pdb 명령어들을 적어주세요.__   
+#### 92. pdb 명령어들을 적어주세요.   
    
 - breakpoint 추가하기 (b)reak   
 - 다음 breakpoint까지 연속적으로 코드 수행 (c)ontinue   
